@@ -3,6 +3,9 @@ import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import Analytics from "@/components/Analytics";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -20,6 +23,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.styluxeinterior.com'),
   title: {
     default: "Styluxe Interior Decor | Turnkey Interior Design in Ahmedabad",
     template: "%s | Styluxe Interior Decor",
@@ -60,9 +64,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${jakarta.variable}`}>
       <body className="font-sans bg-cream text-dark antialiased">
+        <JsonLd />
+        <Analytics />
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

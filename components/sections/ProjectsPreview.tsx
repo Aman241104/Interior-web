@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -65,9 +66,11 @@ export default function ProjectsPreview() {
 
           {/* Hero Project — spans 2 rows */}
           {featured[0] && (
-            <div className="project-card lg:col-span-2 lg:row-span-2 group relative rounded-2xl overflow-hidden cursor-pointer">
-              {/* TODO: Replace with real project photo */}
-              <div className={`relative ${featured[0].bgClass} img-placeholder h-72 lg:h-full min-h-[400px] transition-transform duration-700 group-hover:scale-105`}>
+            <Link href={`/projects/${featured[0].id}`} className="project-card lg:col-span-2 lg:row-span-2 group relative rounded-2xl overflow-hidden cursor-pointer block">
+              <div className={`relative ${featured[0].bgClass} h-72 lg:h-full min-h-[400px]`}>
+                {(featured[0] as any).imageSrc && (
+                  <Image src={(featured[0] as any).imageSrc} alt={featured[0].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4">
                   <span className="font-sans text-xs font-700 tracking-[0.1em] uppercase bg-gold text-dark px-3 py-1.5 rounded-full">
@@ -93,14 +96,16 @@ export default function ProjectsPreview() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           )}
 
           {/* Secondary projects */}
           {featured.slice(1, 3).map((project) => (
-            <div key={project.id} className="project-card group relative rounded-2xl overflow-hidden cursor-pointer">
-              {/* TODO: Replace with real project photo */}
-              <div className={`relative ${project.bgClass} img-placeholder h-64 transition-transform duration-700 group-hover:scale-105`}>
+            <Link key={project.id} href={`/projects/${project.id}`} className="project-card group relative rounded-2xl overflow-hidden cursor-pointer block">
+              <div className={`relative ${project.bgClass} h-64`}>
+                {(project as any).imageSrc && (
+                  <Image src={(project as any).imageSrc} alt={project.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 33vw" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <p className="font-sans text-xs text-cream/60 uppercase tracking-wider mb-1">
@@ -114,14 +119,16 @@ export default function ProjectsPreview() {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
 
           {/* Fourth project */}
           {featured[3] && (
-            <div className="project-card lg:col-span-3 group relative rounded-2xl overflow-hidden cursor-pointer">
-              {/* TODO: Replace with real project photo */}
-              <div className={`relative ${featured[3].bgClass} img-placeholder h-56 transition-transform duration-700 group-hover:scale-105`}>
+            <Link href={`/projects/${featured[3].id}`} className="project-card lg:col-span-3 group relative rounded-2xl overflow-hidden cursor-pointer block">
+              <div className={`relative ${featured[3].bgClass} h-56`}>
+                {(featured[3] as any).imageSrc && (
+                  <Image src={(featured[3] as any).imageSrc} alt={featured[3].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="100vw" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-r from-dark/60 via-transparent to-transparent" />
                 <div className="absolute left-0 top-0 bottom-0 flex items-center p-8">
                   <div>
@@ -137,7 +144,7 @@ export default function ProjectsPreview() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           )}
         </div>
 

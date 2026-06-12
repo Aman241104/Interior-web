@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { company } from "@/lib/data";
@@ -140,36 +141,31 @@ export default function Hero() {
         </div>
 
         {/* Right: Image Panel */}
-        {/* TODO: Replace with real hero interior photo */}
         <div className="hero-image-panel relative hidden lg:block">
-          <div className="absolute inset-0 bg-gradient-to-br from-stone-300 via-stone-400 to-stone-500 img-placeholder">
-            {/* Decorative elements to simulate interior feel */}
-            <div className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-                  45deg,
-                  transparent,
-                  transparent 40px,
-                  rgba(255,255,255,0.05) 40px,
-                  rgba(255,255,255,0.05) 80px
-                )`
-              }}
-            />
-            {/* Overlay card */}
-            <div className="absolute bottom-12 left-8 bg-cream/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl max-w-[240px]">
-              <p className="font-serif text-sm italic text-dark/60 mb-2">Latest Project</p>
-              <p className="font-sans text-base font-600 text-dark">Jasprit Bumrah Farmhouse</p>
-              <p className="font-sans text-xs text-stone-500 mt-1">8500 sqft · Ahmedabad</p>
-              <div className="flex items-center gap-2 mt-3">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3 h-3 text-gold fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <span className="font-sans text-xs text-stone-500">5.0 rating</span>
+          <Image
+            src="/images/hero-main.png"
+            alt="Premium interior design by Styluxe — living room showcase"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="50vw"
+          />
+          {/* subtle dark vignette on left edge to blend with text side */}
+          <div className="absolute inset-0 bg-gradient-to-r from-cream/30 via-transparent to-transparent pointer-events-none" />
+          {/* Overlay card */}
+          <div className="absolute bottom-12 left-8 bg-cream/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl max-w-[240px]">
+            <p className="font-serif text-sm italic text-dark/60 mb-2">Latest Project</p>
+            <p className="font-sans text-base font-600 text-dark">Jasprit Bumrah Farmhouse</p>
+            <p className="font-sans text-xs text-stone-500 mt-1">8500 sqft · Ahmedabad</p>
+            <div className="flex items-center gap-2 mt-3">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-3 h-3 text-gold fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
               </div>
+              <span className="font-sans text-xs text-stone-500">5.0 rating</span>
             </div>
           </div>
         </div>

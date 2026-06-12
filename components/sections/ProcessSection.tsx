@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -121,8 +122,14 @@ export default function ProcessSection() {
 
           {/* Right: Sticky Visual */}
           <div className="process-image lg:sticky lg:top-24">
-            {/* TODO: Replace with real process/site photos */}
-            <div className="relative h-[500px] rounded-2xl overflow-hidden bg-gradient-to-br from-stone-300 to-stone-500 img-placeholder">
+            <div className="relative h-[500px] rounded-2xl overflow-hidden bg-stone-900">
+              <Image
+                src="/images/services/process.png"
+                alt="Styluxe design consultation process"
+                fill
+                className="object-cover opacity-60"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
               <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
                 <div className="text-center">
                   <div className="font-serif text-7xl font-700 text-dark/10 mb-4">
