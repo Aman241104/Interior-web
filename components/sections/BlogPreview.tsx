@@ -72,7 +72,7 @@ export default function BlogPreview() {
               }`}
             >
               {/* Image */}
-              <div className={`relative overflow-hidden ${i === 0 ? "h-52" : "h-44"} ${post.bgClass}`}>
+              <div className={`relative overflow-hidden ${i === 0 ? "h-44 md:h-52" : "h-36 md:h-44"} ${post.bgClass}`}>
                 {(post as any).imageSrc && (
                   <Image
                     src={(post as any).imageSrc}

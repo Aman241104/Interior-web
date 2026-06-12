@@ -40,9 +40,9 @@ export default function FAQSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
 
           {/* Left: Header */}
-          <div className="lg:sticky lg:top-28">
+          <div className="lg:sticky lg:top-28 lg:block">
             <SectionLabel text="FAQ" />
-            <h2 className="font-serif text-[clamp(2.5rem,3.5vw,4rem)] font-300 text-dark leading-tight mt-6 mb-6">
+            <h2 className="font-serif text-[clamp(2rem,3.5vw,4rem)] font-300 text-dark leading-tight mt-6 mb-6">
               Questions we{" "}
               <span className="italic font-600 text-gold">always get asked.</span>
             </h2>
@@ -52,7 +52,7 @@ export default function FAQSection() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-dark text-cream font-sans text-sm font-600 tracking-wide px-7 py-3.5 rounded-full hover:bg-gold transition-all duration-300 group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-dark text-cream font-sans text-sm font-600 tracking-wide px-7 py-3.5 rounded-full hover:bg-gold transition-all duration-300 group"
             >
               Ask us directly
               <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

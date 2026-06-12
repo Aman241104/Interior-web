@@ -96,7 +96,7 @@ export default function CalculatorClient() {
       <div className="pt-32 pb-16 bg-cream">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
           <SectionLabel text="Cost Calculator" />
-          <h1 className="font-serif text-[clamp(2.5rem,5vw,6rem)] font-300 leading-[0.92] tracking-tight text-dark mt-6 mb-6 max-w-4xl">
+          <h1 className="font-serif text-[clamp(2rem,5vw,6rem)] font-300 leading-[0.92] tracking-tight text-dark mt-6 mb-6 max-w-4xl">
             Estimate your{" "}
             <span className="italic font-600 text-gold">project cost.</span>
           </h1>
@@ -112,8 +112,8 @@ export default function CalculatorClient() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
 
-            {/* Left: Inputs (3 cols) */}
-            <div className="lg:col-span-3 space-y-8">
+            {/* Left: Inputs (3 cols) — shown second on mobile, first on desktop */}
+            <div className="lg:col-span-3 space-y-8 order-2 lg:order-1">
 
               {/* Step 1: Project Type */}
               <div className="bg-cream border border-stone-200 rounded-2xl p-6 lg:p-8">
@@ -234,7 +234,7 @@ export default function CalculatorClient() {
                   </div>
                   <h2 className="font-sans text-base font-600 text-dark">Design Package</h2>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   {(["Essential", "Standard", "Luxury"] as PackageName[]).map((pkg) => {
                     const pkgData = calculatorConfig.packages[pkg];
                     const rates = pkgData[projectType];
@@ -273,8 +273,8 @@ export default function CalculatorClient() {
               </div>
             </div>
 
-            {/* Right: Results (2 cols) */}
-            <div className="lg:col-span-2 lg:sticky lg:top-28 space-y-6">
+            {/* Right: Results (2 cols) — shown first on mobile */}
+            <div className="lg:col-span-2 lg:sticky lg:top-28 space-y-6 order-1 lg:order-2">
 
               {/* Total Estimate Card */}
               <div className="bg-dark rounded-2xl p-6 lg:p-8">

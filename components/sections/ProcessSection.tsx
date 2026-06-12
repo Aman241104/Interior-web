@@ -112,7 +112,7 @@ export default function ProcessSection() {
                 <div className={`overflow-hidden transition-all duration-400 ${
                   activeStep === i ? "max-h-40 pb-5" : "max-h-0"
                 }`}>
-                  <p className="font-sans text-sm text-stone-500 leading-relaxed pl-16">
+                  <p className="font-sans text-sm text-stone-500 leading-relaxed pl-0 sm:pl-16">
                     {step.description}
                   </p>
                 </div>
@@ -120,8 +120,8 @@ export default function ProcessSection() {
             ))}
           </div>
 
-          {/* Right: Sticky Visual */}
-          <div className="process-image lg:sticky lg:top-24">
+          {/* Right: Sticky Visual — hidden on mobile, shown on desktop */}
+          <div className="process-image hidden lg:block lg:sticky lg:top-24">
             <div className="relative h-[500px] rounded-2xl overflow-hidden bg-stone-900">
               <Image
                 src="/images/services/process.png"

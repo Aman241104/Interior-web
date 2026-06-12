@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
 
           {/* Featured quote */}
           <div className="testimonial-card lg:col-span-3">
-            <div className="bg-dark-800 border border-dark-700 rounded-2xl p-8 lg:p-10 h-full flex flex-col">
+            <div className="bg-dark-800 border border-dark-700 rounded-2xl p-6 lg:p-10 h-full flex flex-col">
               <StarRating count={featured.rating} />
               <blockquote className="font-serif text-xl lg:text-2xl font-300 italic text-cream/90 leading-relaxed mt-6 flex-1">
                 "{featured.quote}"
@@ -102,12 +102,12 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Selector list */}
-          <div className="testimonial-card lg:col-span-2 flex flex-col gap-3">
+          <div className="testimonial-card lg:col-span-2 flex flex-col gap-3 overflow-y-auto max-h-72 lg:max-h-none">
             {testimonials.map((t, i) => (
               <button
                 key={t.id}
                 onClick={() => setActive(i)}
-                className={`text-left p-4 rounded-xl border transition-all duration-300 group ${
+                className={`text-left p-3 lg:p-4 rounded-xl border transition-all duration-300 group ${
                   active === i
                     ? "bg-dark-800 border-gold/40"
                     : "border-dark-700 hover:border-stone-600"

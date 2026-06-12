@@ -50,7 +50,7 @@ export default function BlogClient() {
             <SectionLabel text="Our Blog" />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mt-6">
-            <h1 className="blog-hero-text font-serif text-[clamp(3rem,5vw,6rem)] font-300 leading-[0.92] tracking-tight text-dark">
+            <h1 className="blog-hero-text font-serif text-[clamp(2.2rem,5vw,6rem)] font-300 leading-[0.92] tracking-tight text-dark">
               Design{" "}
               <span className="italic font-600 text-gold">wisdom</span>
               <br />& inspiration.
@@ -66,7 +66,7 @@ export default function BlogClient() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12 mb-0">
           <div className="blog-hero-text">
             {blogPosts[0] && (
-              <Link href={`/blog/${blogPosts[0].slug}`} className="group cursor-pointer rounded-2xl overflow-hidden relative h-[400px] lg:h-[500px] border border-stone-200 hover:border-gold/40 transition-all duration-400 shadow-sm hover:shadow-xl block">
+              <Link href={`/blog/${blogPosts[0].slug}`} className="group cursor-pointer rounded-2xl overflow-hidden relative h-[260px] md:h-[400px] lg:h-[500px] border border-stone-200 hover:border-gold/40 transition-all duration-400 shadow-sm hover:shadow-xl block">
                 <div className={`absolute inset-0 ${blogPosts[0].bgClass}`}>
                   {(blogPosts[0] as any).imageSrc && (
                     <Image
@@ -85,7 +85,7 @@ export default function BlogClient() {
                     {blogPosts[0].category}
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10">
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 lg:p-10">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="font-sans text-sm text-cream/60">{new Date(blogPosts[0].date).toLocaleDateString('en-IN', { month: 'long', year: 'numeric' })}</span>
                     <span className="text-cream/30">·</span>
@@ -107,12 +107,12 @@ export default function BlogClient() {
       {/* Filter Bar */}
       <div className="bg-cream sticky top-[72px] z-30 border-b border-stone-200 shadow-sm mt-8">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-4">
-          <div className="flex items-center gap-3 overflow-x-auto">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`font-sans text-sm font-600 tracking-wide px-5 py-2 rounded-full whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
+                className={`font-sans text-xs sm:text-sm font-600 tracking-wide px-3 sm:px-5 py-2 rounded-full whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
                   activeCategory === cat
                     ? "bg-dark text-cream"
                     : "bg-stone-100 text-stone-500 hover:bg-stone-200 hover:text-dark"
@@ -136,7 +136,7 @@ export default function BlogClient() {
                 className="blog-post-card group cursor-pointer rounded-2xl overflow-hidden border border-stone-200 hover:border-gold/40 hover:shadow-lg transition-all duration-400 bg-cream block"
               >
                 {/* Image */}
-                <div className={`relative h-48 overflow-hidden ${post.bgClass}`}>
+                <div className={`relative h-40 md:h-48 overflow-hidden ${post.bgClass}`}>
                   {(post as any).imageSrc && (
                     <Image
                       src={(post as any).imageSrc}

@@ -31,7 +31,7 @@ export default function AboutClient() {
         <div className="about-hero-text">
           <SectionLabel text="Our Story" />
         </div>
-        <h1 className="about-hero-text font-serif text-[clamp(3rem,6vw,7rem)] font-300 leading-[0.92] tracking-tight text-dark mt-6 mb-8 max-w-5xl">
+        <h1 className="about-hero-text font-serif text-[clamp(2.2rem,6vw,7rem)] font-300 leading-[0.92] tracking-tight text-dark mt-6 mb-8 max-w-5xl">
           Thirteen years of{" "}
           <span className="italic font-600 text-gold">crafting</span>{" "}
           extraordinary interiors.
@@ -93,7 +93,7 @@ export default function AboutClient() {
 
             <AnimatedSection delay={0.2}>
               <SectionLabel text="The Founder" />
-              <div className="h-80 rounded-2xl relative overflow-hidden mt-6 mb-6 bg-stone-900">
+              <div className="h-64 md:h-80 rounded-2xl relative overflow-hidden mt-6 mb-6 bg-stone-900">
                 <Image
                   src="/images/founder-headshot.png"
                   alt="Akash Modi — Founder & Principal Designer, Styluxe Interior Decor"
@@ -128,15 +128,15 @@ export default function AboutClient() {
       <section className="py-20 bg-dark">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
           <AnimatedSection>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-12 text-center">
               {[
                 { value: `${company.stats.total}+`, label: "Projects Completed" },
                 { value: `${company.stats.experience}+`, label: "Years of Experience" },
                 { value: `${company.stats.team}+`, label: "Team Members" },
                 { value: `${company.stats.awards}`, label: "Industry Awards" },
               ].map((stat) => (
-                <div key={stat.label} className="py-8">
-                  <div className="font-serif text-[clamp(3rem,6vw,5rem)] font-700 text-gold leading-none mb-3">
+                <div key={stat.label} className="py-6 lg:py-8">
+                  <div className="font-serif text-[clamp(2.5rem,6vw,5rem)] font-700 text-gold leading-none mb-3">
                     {stat.value}
                   </div>
                   <div className="font-sans text-sm text-stone-500 tracking-wide">{stat.label}</div>

@@ -64,12 +64,12 @@ export default function Hero() {
   return (
     <div ref={containerRef} className="relative min-h-screen bg-cream overflow-hidden">
       {/* Main Layout: Left text + Right image */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-80px)] pt-18">
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-80px)] pt-12 lg:pt-18">
 
         {/* Left: Text Content */}
-        <div className="flex flex-col justify-center px-6 lg:px-16 xl:px-24 pt-16 lg:pt-0 pb-8">
+        <div className="flex flex-col justify-center px-6 lg:px-16 xl:px-24 pt-8 lg:pt-0 pb-8">
           {/* Label */}
-          <div className="hero-label flex items-center gap-3 mb-8">
+          <div className="hero-label flex items-center gap-3 mb-5 lg:mb-8">
             <div className="h-px w-10 bg-gold" />
             <span className="font-sans text-xs font-700 tracking-[0.2em] uppercase text-gold">
               Est. 2013 · Ahmedabad
@@ -77,23 +77,23 @@ export default function Hero() {
           </div>
 
           {/* Display Title */}
-          <h1 className="mb-8">
-            <span className="hero-line block font-serif text-[clamp(3.5rem,6vw,6rem)] font-300 leading-[0.92] tracking-tight text-dark">
+          <h1 className="mb-5 lg:mb-8">
+            <span className="hero-line block font-serif text-[clamp(2rem,8vw,6rem)] font-300 leading-[0.92] tracking-tight text-dark">
               Crafting
             </span>
-            <span className="hero-line block font-serif text-[clamp(3.5rem,6vw,6rem)] font-700 italic leading-[0.92] tracking-tight text-dark">
+            <span className="hero-line block font-serif text-[clamp(2rem,8vw,6rem)] font-700 italic leading-[0.92] tracking-tight text-dark">
               Spaces
             </span>
-            <span className="hero-line block font-serif text-[clamp(3.5rem,6vw,6rem)] font-300 leading-[0.92] tracking-tight text-dark">
+            <span className="hero-line block font-serif text-[clamp(2rem,8vw,6rem)] font-300 leading-[0.92] tracking-tight text-dark">
               That Define
             </span>
-            <span className="hero-line block font-serif text-[clamp(3.5rem,6vw,6rem)] font-700 italic leading-[0.92] tracking-tight text-gold">
+            <span className="hero-line block font-serif text-[clamp(2rem,8vw,6rem)] font-700 italic leading-[0.92] tracking-tight text-gold">
               You.
             </span>
           </h1>
 
           {/* Sub text */}
-          <p className="hero-sub font-sans text-base lg:text-lg text-stone-500 leading-relaxed max-w-md mb-10">
+          <p className="hero-sub font-sans text-base lg:text-lg text-stone-500 leading-relaxed max-w-md mb-7 lg:mb-10">
             {company.subTagline}. Premium turnkey interiors for residential and
             commercial spaces in Ahmedabad by <span className="text-dark font-600">{company.founder}</span>.
           </p>
@@ -124,19 +124,13 @@ export default function Hero() {
           </div>
 
           {/* Trust indicators */}
-          <div className="hero-cta flex items-center gap-6 mt-10 pt-10 border-t border-stone-200">
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-gold" />
-              <span className="font-sans text-xs text-stone-500">Under 90 Days Delivery</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-gold" />
-              <span className="font-sans text-xs text-stone-500">Top Brand Materials</span>
-            </div>
-            <div className="flex items-center gap-2 hidden sm:flex">
-              <div className="w-1.5 h-1.5 rounded-full bg-gold" />
-              <span className="font-sans text-xs text-stone-500">CCTV Monitored Sites</span>
-            </div>
+          <div className="hero-cta flex flex-wrap items-center gap-x-5 gap-y-2 mt-6 pt-6 lg:mt-8 lg:pt-8 border-t border-stone-200">
+            {["Under 90 Days Delivery", "Top Brand Materials", "CCTV Monitored Sites"].map((t) => (
+              <div key={t} className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
+                <span className="font-sans text-xs text-stone-500">{t}</span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -174,7 +168,7 @@ export default function Hero() {
       {/* Stats Strip */}
       <div className="bg-dark text-cream">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-dark-700">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-0 lg:divide-x lg:divide-dark-700">
             {[
               { value: "27+", label: "Projects Completed" },
               { value: "13+", label: "Years of Experience" },

@@ -140,16 +140,16 @@ export default function Navigation() {
         />
         {/* Drawer */}
         <div
-          className={`absolute top-0 right-0 w-80 h-full bg-cream flex flex-col pt-24 pb-12 px-8 shadow-2xl transition-transform duration-500 ${
+          className={`absolute top-0 right-0 w-[min(100%,20rem)] h-full bg-cream flex flex-col pt-20 pb-10 px-6 sm:px-8 shadow-2xl transition-transform duration-500 ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-serif text-3xl font-400 py-3 border-b border-stone-200 hover:text-gold transition-colors duration-200 ${
+                className={`font-serif text-2xl sm:text-3xl font-400 py-3 border-b border-stone-200 hover:text-gold transition-colors duration-200 ${
                   pathname === link.href ? "text-gold" : "text-dark"
                 }`}
               >
@@ -158,8 +158,17 @@ export default function Navigation() {
             ))}
           </div>
 
+          <div className="mt-8">
+            <Link
+              href="/contact"
+              className="flex items-center justify-center gap-2 bg-dark text-cream font-sans text-sm font-600 tracking-wide px-6 py-3.5 rounded-full hover:bg-gold transition-colors duration-300 w-full"
+            >
+              Get a Free Quote
+            </Link>
+          </div>
+
           <div className="mt-auto">
-            <div className="h-px w-full bg-stone-200 mb-6" />
+            <div className="h-px w-full bg-stone-200 mb-5" />
             <p className="font-sans text-xs text-stone-500 leading-relaxed">
               Crafting Spaces That Define You
             </p>

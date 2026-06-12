@@ -51,7 +51,7 @@ export default function BlogPostPage({ params }: Props) {
     <main className="min-h-screen bg-cream pt-[76px]">
       <BlogReadingProgress />
       {/* Hero */}
-      <div className={`w-full h-[50vh] min-h-[400px] ${post.bgClass} relative flex items-end`}>
+      <div className={`w-full h-[45vh] min-h-[280px] md:min-h-[380px] ${post.bgClass} relative flex items-end`}>
         {(post as any).imageSrc && (
           <Image
             src={(post as any).imageSrc}
@@ -63,7 +63,7 @@ export default function BlogPostPage({ params }: Props) {
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent" />
-        <div className="relative z-10 px-6 md:px-16 pb-12 max-w-5xl mx-auto w-full">
+        <div className="relative z-10 px-4 sm:px-6 md:px-16 pb-8 sm:pb-12 max-w-5xl mx-auto w-full">
           <span className="inline-block text-xs font-semibold tracking-widest text-gold uppercase mb-3 bg-dark/50 px-3 py-1 rounded-sm">{post.category}</span>
           <h1 className="text-3xl md:text-5xl font-serif font-light text-cream leading-tight max-w-3xl">{post.title}</h1>
           <div className="flex items-center gap-4 mt-4 text-stone-400 text-sm">
@@ -77,7 +77,7 @@ export default function BlogPostPage({ params }: Props) {
       </div>
 
       {/* Content */}
-      <div className="max-w-3xl mx-auto px-6 py-16">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
         <p className="text-xl text-stone-600 font-light leading-relaxed mb-6 border-l-4 border-gold pl-6 italic">{post.excerpt}</p>
         <BlogShareButtons url={postUrl} title={post.title} />
         {post.content ? (
@@ -102,7 +102,7 @@ export default function BlogPostPage({ params }: Props) {
           {otherPosts.length > 0 && (
             <div className="mt-10">
               <h4 className="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-6">More Articles</h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {otherPosts.map(p => (
                   <Link key={p.id} href={`/blog/${p.slug}`} className="group">
                     <div className={`h-32 ${p.bgClass} rounded-sm mb-3 relative overflow-hidden`}>

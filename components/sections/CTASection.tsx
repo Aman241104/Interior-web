@@ -67,7 +67,7 @@ export default function CTASection() {
           </div>
 
           {/* Heading */}
-          <h2 className="font-serif text-[clamp(2.5rem,5vw,5.5rem)] font-300 text-cream leading-tight mb-6">
+          <h2 className="font-serif text-[clamp(2rem,5vw,5.5rem)] font-300 text-cream leading-tight mb-6">
             Ready to transform
             <br />
             <span className="italic font-600 text-gold">your space?</span>
@@ -82,7 +82,7 @@ export default function CTASection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-3 bg-gold text-dark font-sans text-sm font-700 tracking-wide px-10 py-4 rounded-full hover:bg-gold-light transition-all duration-300 group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gold text-dark font-sans text-sm font-700 tracking-wide px-8 sm:px-10 py-4 rounded-full hover:bg-gold/80 transition-all duration-300 group"
             >
               Schedule a Consultation
               <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -91,14 +91,14 @@ export default function CTASection() {
             </Link>
             <Link
               href="/calculator"
-              className="inline-flex items-center justify-center gap-2 border border-stone-600 text-stone-300 hover:border-cream hover:text-cream font-sans text-sm font-600 tracking-wide px-10 py-4 rounded-full transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-stone-600 text-stone-300 hover:border-cream hover:text-cream font-sans text-sm font-600 tracking-wide px-8 sm:px-10 py-4 rounded-full transition-all duration-300"
             >
               Calculate Your Budget
             </Link>
           </div>
 
           {/* Stats row */}
-          <div className="mt-16 pt-10 border-t border-dark-700 grid grid-cols-3 gap-8">
+          <div className="mt-12 pt-8 border-t border-dark-700 grid grid-cols-3 gap-4 sm:gap-8">
             {[
               { value: "27+", label: "Projects Done" },
               { value: "₹0", label: "Hidden Charges" },

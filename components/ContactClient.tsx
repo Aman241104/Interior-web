@@ -178,7 +178,7 @@ export default function ContactClient() {
 
               {/* Google Maps Embed */}
               <AnimatedSection delay={0.2}>
-                <div className="w-full h-64 rounded-sm overflow-hidden border border-stone-200">
+                <div className="w-full h-48 md:h-64 rounded-sm overflow-hidden border border-stone-200">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.0!2d72.5681!3d23.0087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPaldi%2C%20Ahmedabad%2C%20Gujarat%20380007!5e0!3m2!1sen!2sin!4v1234567890"
                     width="100%"

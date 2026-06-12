@@ -89,7 +89,7 @@ export default function ServicesClient() {
         <div className="services-hero-text">
           <SectionLabel text="What We Offer" />
         </div>
-        <h1 className="services-hero-text font-serif text-[clamp(3rem,6vw,7rem)] font-300 leading-[0.92] tracking-tight text-dark mt-6 mb-8 max-w-5xl">
+        <h1 className="services-hero-text font-serif text-[clamp(2.2rem,6vw,7rem)] font-300 leading-[0.92] tracking-tight text-dark mt-6 mb-8 max-w-5xl">
           Spaces designed for the way{" "}
           <span className="italic font-600 text-gold">you live and work.</span>
         </h1>
@@ -112,7 +112,7 @@ export default function ServicesClient() {
               {/* Image */}
               <div className={`${i % 2 !== 0 ? "lg:col-start-2" : ""}`}>
                 <AnimatedSection>
-                  <div className={`h-[400px] lg:h-[500px] rounded-2xl overflow-hidden ${service.bgClass} relative`}>
+                  <div className={`h-[260px] sm:h-[360px] lg:h-[500px] rounded-2xl overflow-hidden ${service.bgClass} relative`}>
                     <Image
                       src={`/images/services/${service.id}.png`}
                       alt={service.title}

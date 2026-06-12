@@ -29,7 +29,7 @@ export default function ProjectPage({ params }: Props) {
   return (
     <main className="min-h-screen bg-cream pt-[76px]">
       {/* Hero */}
-      <div className={`w-full h-[60vh] min-h-[480px] ${project.bgClass} relative`}>
+      <div className={`w-full h-[50vh] min-h-[300px] md:min-h-[420px] ${project.bgClass} relative`}>
         {(project as any).imageSrc && (
           <Image src={(project as any).imageSrc} alt={project.title} fill className="object-cover" sizes="100vw" priority />
         )}
@@ -87,7 +87,7 @@ export default function ProjectPage({ params }: Props) {
                   <span className="capitalize font-medium">{value}</span>
                 </div>
               ))}
-              <div className="flex flex-wrap gap-2 mt-5">
+              <div className="flex flex-wrap gap-2 mt-5 max-w-full">
                 {project.tags?.map((tag: string) => (
                   <span key={tag} className="text-xs px-3 py-1 bg-stone-800 text-stone-400 rounded-sm">{tag}</span>
                 ))}

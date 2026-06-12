@@ -102,7 +102,7 @@ export default function ProjectsPreview() {
           {/* Secondary projects */}
           {featured.slice(1, 3).map((project) => (
             <Link key={project.id} href={`/projects/${project.id}`} className="project-card group relative rounded-2xl overflow-hidden cursor-pointer block">
-              <div className={`relative ${project.bgClass} h-64`}>
+              <div className={`relative ${project.bgClass} h-52 md:h-64`}>
                 {(project as any).imageSrc && (
                   <Image src={(project as any).imageSrc} alt={project.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 33vw" loading="lazy" />
                 )}
@@ -130,12 +130,12 @@ export default function ProjectsPreview() {
                   <Image src={(featured[3] as any).imageSrc} alt={featured[3].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="100vw" loading="lazy" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-r from-dark/60 via-transparent to-transparent" />
-                <div className="absolute left-0 top-0 bottom-0 flex items-center p-8">
+                <div className="absolute left-0 top-0 bottom-0 flex items-center p-5 sm:p-8">
                   <div>
                     <p className="font-sans text-xs text-cream/60 uppercase tracking-wider mb-2">
                       {featured[3].type} · {featured[3].area}
                     </p>
-                    <h3 className="font-serif text-2xl lg:text-3xl font-600 text-cream mb-2">
+                    <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-600 text-cream mb-2">
                       {featured[3].title}
                     </h3>
                     <p className="font-sans text-sm text-cream/70 max-w-md hidden md:block">

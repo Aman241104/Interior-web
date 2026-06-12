@@ -45,11 +45,11 @@ export default function Footer() {
     <footer className="bg-dark text-cream">
       <div className="h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
 
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 pt-20 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 pt-12 lg:pt-20 pb-8 lg:pb-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 mb-12 lg:mb-16">
 
           {/* Brand Column — 4 cols */}
-          <div className="lg:col-span-4">
+          <div className="col-span-2 lg:col-span-4">
             <Link href="/" className="flex flex-col leading-none mb-6">
               <span className="font-serif text-3xl font-600 text-cream tracking-tight">Styluxe</span>
               <span className="font-sans text-[10px] font-700 tracking-[0.2em] uppercase text-gold">Interior Decor</span>
@@ -108,7 +108,7 @@ export default function Footer() {
           </div>
 
           {/* Contact + Newsletter — 4 cols */}
-          <div className="lg:col-span-4">
+          <div className="col-span-2 lg:col-span-4">
             <h4 className="font-sans text-xs font-700 tracking-[0.18em] uppercase text-gold mb-6">Get in Touch</h4>
             <address className="not-italic flex flex-col gap-4 mb-8">
               <div>

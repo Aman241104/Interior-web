@@ -130,7 +130,7 @@ export default function AboutStrip() {
           </div>
 
           {/* Right: Stats Grid */}
-          <div className="grid grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 gap-6 lg:gap-12">
             {stats.map((stat) => (
               <StatItem key={stat.label} {...stat} />
             ))}
