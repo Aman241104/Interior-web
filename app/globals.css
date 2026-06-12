@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cream: #FAF7F2;
+  --color-dark: #1A1714;
+  --color-gold: #B8923A;
+  --color-terra: #C4724A;
+}
+
+/* ── Base Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #FAF7F2;
+  color: #1A1714;
+  overflow-x: hidden;
+}
+
+/* ── Typography ── */
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: #B8923A;
+  color: #FAF7F2;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #B8923A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8A6B27;
+}
+
+/* ── GSAP Reveal ── */
+.gsap-hidden {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+/* ── Clip Paths ── */
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+/* ── Range Input Styling ── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+  background: #DDD5CB;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #B8923A;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: -8px;
+  box-shadow: 0 2px 8px rgba(184, 146, 58, 0.4);
+  transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+input[type="range"]::-moz-range-track {
+  background: #DDD5CB;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #B8923A;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 8px rgba(184, 146, 58, 0.4);
+}
+
+/* ── Marquee ── */
+.marquee-track {
+  will-change: transform;
+}
+
+/* ── Overlay Gradient ── */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    #FAF7F2 0%,
+    #FAF7F2 50%,
+    transparent 50%
+  );
+}
+
+/* ── Image Placeholder ── */
+.img-placeholder {
+  position: relative;
+  overflow: hidden;
+}
+.img-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ── Prose ── */
+.prose-styluxe {
+  line-height: 1.75;
+  color: #504B46;
+}
+.prose-styluxe p {
+  margin-bottom: 1.25rem;
+}
+
+/* ── Number animation ── */
+.counter-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Hover Underline ── */
+.hover-underline {
+  position: relative;
+}
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* ── Focus Rings ── */
+*:focus-visible {
+  outline: 2px solid #B8923A;
+  outline-offset: 3px;
+}
+
+/* ── Print ── */
+@media print {
+  .no-print {
+    display: none;
+  }
+}
