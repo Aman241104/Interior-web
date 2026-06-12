@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -135,14 +136,21 @@ export default function AboutStrip() {
             ))}
 
             {/* Image Accent */}
-            {/* TODO: Replace with real founder/team photo */}
-            <div className="col-span-2 h-32 rounded-2xl bg-gradient-to-r from-stone-300 to-stone-400 relative overflow-hidden img-placeholder">
+            <div className="col-span-2 h-32 rounded-2xl relative overflow-hidden">
+              <Image
+                src="/images/studio-office.png"
+                alt="Styluxe studio"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-dark/50" />
               <div className="absolute inset-0 flex items-center px-6">
                 <div>
-                  <p className="font-serif text-xl italic text-dark/70">
+                  <p className="font-serif text-xl italic text-cream/90">
                     "Quality is not a destination, it's our standard."
                   </p>
-                  <p className="font-sans text-xs text-dark/50 mt-2">— Akash Modi, Founder</p>
+                  <p className="font-sans text-xs text-cream/60 mt-2">— Akash Modi, Founder</p>
                 </div>
               </div>
             </div>

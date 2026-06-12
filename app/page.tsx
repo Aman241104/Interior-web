@@ -5,6 +5,8 @@ import AboutStrip from "@/components/sections/AboutStrip";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProjectsPreview from "@/components/sections/ProjectsPreview";
 import ProcessSection from "@/components/sections/ProcessSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import FAQSection from "@/components/sections/FAQSection";
 import BlogPreview from "@/components/sections/BlogPreview";
 import CTASection from "@/components/sections/CTASection";
 
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
   title: "Styluxe Interior Decor | Turnkey Interior Design Ahmedabad",
   description:
     "Crafting spaces that define you. Premium turnkey interior design for residential and commercial projects in Ahmedabad. Delivered under 90 days by Akash Modi.",
+  alternates: { canonical: "https://www.styluxeinterior.com" },
 };
 
 export default function HomePage() {
@@ -23,6 +26,8 @@ export default function HomePage() {
       <ServicesSection />
       <ProjectsPreview />
       <ProcessSection />
+      <TestimonialsSection />
+      <FAQSection />
       <BlogPreview />
       <CTASection />
     </>

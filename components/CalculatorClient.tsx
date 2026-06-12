@@ -21,6 +21,8 @@ export default function CalculatorClient() {
   const [subtype, setSubtype] = useState<string>(calculatorConfig.subtypes.residential[0]);
   const [area, setArea] = useState<number>(1500);
   const [selectedPackage, setSelectedPackage] = useState<PackageName>("Standard");
+  const [estimateEmail, setEstimateEmail] = useState("");
+  const [emailState, setEmailState] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   // When project type changes, reset subtype
   const handleProjectTypeChange = (type: ProjectTypeCalc) => {
@@ -54,6 +56,33 @@ export default function CalculatorClient() {
       rateMax: rates.max,
     };
   }, [projectType, area, selectedPackage]);
+
+  const handleSendEstimate = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!estimateEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(estimateEmail)) return;
+    setEmailState("loading");
+    try {
+      const res = await fetch("/api/estimate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: estimateEmail,
+          projectType,
+          subtype,
+          area,
+          packageName: selectedPackage,
+          minTotal: estimate.minTotal,
+          maxTotal: estimate.maxTotal,
+          midTotal: estimate.midTotal,
+          timeline: estimate.timeline,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setEmailState("success");
+    } catch {
+      setEmailState("error");
+    }
+  };
 
   const formatCurrency = (amount: number): string => {
     if (amount >= 10000000) return `₹${(amount / 10000000).toFixed(1)}Cr`;
@@ -285,13 +314,50 @@ export default function CalculatorClient() {
 
                 <Link
                   href="/contact"
-                  className="w-full flex items-center justify-center gap-2 bg-gold text-dark font-sans text-sm font-700 tracking-wide px-6 py-3.5 rounded-full hover:bg-gold-light transition-all duration-300"
+                  className="w-full flex items-center justify-center gap-2 bg-gold text-dark font-sans text-sm font-700 tracking-wide px-6 py-3.5 rounded-full hover:bg-gold/80 transition-all duration-300"
                 >
                   Get Exact Quote
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
+
+                {/* Email estimate */}
+                <div className="border-t border-dark-700 pt-5 mt-1">
+                  <p className="font-sans text-xs text-stone-500 mb-3">Or email this estimate to yourself:</p>
+                  {emailState === "success" ? (
+                    <div className="flex items-center gap-2 text-gold">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="font-sans text-sm">Estimate sent to your inbox!</span>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSendEstimate} className="flex gap-2">
+                      <input
+                        type="email"
+                        value={estimateEmail}
+                        onChange={(e) => { setEstimateEmail(e.target.value); setEmailState("idle"); }}
+                        placeholder="your@email.com"
+                        required
+                        disabled={emailState === "loading"}
+                        className="flex-1 min-w-0 font-sans text-sm bg-dark-800 border border-dark-700 text-cream placeholder:text-stone-600 rounded-full px-3 py-2 focus:outline-none focus:border-gold transition-colors text-xs disabled:opacity-50"
+                      />
+                      <button
+                        type="submit"
+                        disabled={emailState === "loading"}
+                        className="flex-shrink-0 border border-stone-700 text-stone-400 hover:border-gold hover:text-gold font-sans text-xs font-600 px-3 py-2 rounded-full transition-colors disabled:opacity-50 whitespace-nowrap"
+                      >
+                        {emailState === "loading" ? (
+                          <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                          </svg>
+                        ) : emailState === "error" ? "Retry" : "Send"}
+                      </button>
+                    </form>
+                  )}
+                </div>
               </div>
 
               {/* Breakdown Card */}

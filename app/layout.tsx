@@ -41,14 +41,34 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Styluxe Interior Decor" }],
   creator: "Styluxe Interior Decor",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://styluxe.in",
+    url: "https://www.styluxeinterior.com",
     siteName: "Styluxe Interior Decor",
     title: "Styluxe Interior Decor | Turnkey Interior Design in Ahmedabad",
     description:
       "Premium turnkey interior design delivered in under 90 days. Residential, commercial, and healthcare spaces crafted with intention.",
+    images: [
+      {
+        url: "/images/hero-main.png",
+        width: 1200,
+        height: 630,
+        alt: "Styluxe Interior Decor — Premium Turnkey Interiors Ahmedabad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Styluxe Interior Decor | Turnkey Interior Design in Ahmedabad",
+    description:
+      "Premium turnkey interior design delivered in under 90 days. Residential, commercial, and healthcare spaces crafted with intention.",
+    images: ["/images/hero-main.png"],
   },
   robots: {
     index: true,

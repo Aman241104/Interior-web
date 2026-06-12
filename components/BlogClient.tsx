@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -66,8 +67,18 @@ export default function BlogClient() {
           <div className="blog-hero-text">
             {blogPosts[0] && (
               <Link href={`/blog/${blogPosts[0].slug}`} className="group cursor-pointer rounded-2xl overflow-hidden relative h-[400px] lg:h-[500px] border border-stone-200 hover:border-gold/40 transition-all duration-400 shadow-sm hover:shadow-xl block">
-                {/* TODO: Replace with real blog cover image */}
-                <div className={`absolute inset-0 ${blogPosts[0].bgClass} img-placeholder transition-transform duration-700 group-hover:scale-105`} />
+                <div className={`absolute inset-0 ${blogPosts[0].bgClass}`}>
+                  {(blogPosts[0] as any).imageSrc && (
+                    <Image
+                      src={(blogPosts[0] as any).imageSrc}
+                      alt={blogPosts[0].title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="100vw"
+                      priority
+                    />
+                  )}
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent" />
                 <div className="absolute top-6 left-6">
                   <span className="font-sans text-xs font-700 tracking-wider uppercase bg-gold text-dark px-3 py-1.5 rounded-full">
@@ -125,11 +136,18 @@ export default function BlogClient() {
                 className="blog-post-card group cursor-pointer rounded-2xl overflow-hidden border border-stone-200 hover:border-gold/40 hover:shadow-lg transition-all duration-400 bg-cream block"
               >
                 {/* Image */}
-                {/* TODO: Replace with real blog cover images */}
-                <div className={`relative h-48 overflow-hidden ${post.bgClass} img-placeholder`}>
+                <div className={`relative h-48 overflow-hidden ${post.bgClass}`}>
+                  {(post as any).imageSrc && (
+                    <Image
+                      src={(post as any).imageSrc}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
-                  <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 bg-inherit" />
-                  <div className="absolute top-3 left-3">
+                  <div className="absolute top-3 left-3 z-10">
                     <span className="font-sans text-xs font-700 tracking-wider uppercase bg-gold text-dark px-2.5 py-1 rounded-full">
                       {post.category}
                     </span>

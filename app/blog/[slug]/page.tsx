@@ -1,7 +1,10 @@
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { blogPosts } from '@/lib/data'
+import BlogReadingProgress from '@/components/ui/BlogReadingProgress'
+import BlogShareButtons from '@/components/ui/BlogShareButtons'
 
 type Props = { params: { slug: string } }
 
@@ -12,11 +15,26 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = blogPosts.find(p => p.slug === params.slug)
   if (!post) return {}
+  const imageSrc = (post as any).imageSrc ?? '/images/hero-main.png'
   return {
     title: `${post.title} | Styluxe Interior Decor Blog`,
     description: post.excerpt,
     keywords: [post.category, 'interior design', 'Ahmedabad', ...post.title.toLowerCase().split(' ').slice(0, 5)],
-    openGraph: { title: post.title, description: post.excerpt, type: 'article', publishedTime: post.date },
+    alternates: { canonical: `https://www.styluxeinterior.com/blog/${post.slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: 'article',
+      publishedTime: post.date,
+      url: `https://www.styluxeinterior.com/blog/${post.slug}`,
+      images: [{ url: imageSrc, width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [imageSrc],
+    },
   }
 }
 
@@ -27,10 +45,23 @@ export default function BlogPostPage({ params }: Props) {
   const relatedPosts = blogPosts.filter(p => p.slug !== post.slug && p.category === post.category).slice(0, 3)
   const otherPosts = relatedPosts.length < 3 ? [...relatedPosts, ...blogPosts.filter(p => p.slug !== post.slug && !relatedPosts.includes(p)).slice(0, 3 - relatedPosts.length)] : relatedPosts
 
+  const postUrl = `https://www.styluxeinterior.com/blog/${post.slug}`
+
   return (
     <main className="min-h-screen bg-cream pt-[76px]">
+      <BlogReadingProgress />
       {/* Hero */}
       <div className={`w-full h-[50vh] min-h-[400px] ${post.bgClass} relative flex items-end`}>
+        {(post as any).imageSrc && (
+          <Image
+            src={(post as any).imageSrc}
+            alt={post.title}
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent" />
         <div className="relative z-10 px-6 md:px-16 pb-12 max-w-5xl mx-auto w-full">
           <span className="inline-block text-xs font-semibold tracking-widest text-gold uppercase mb-3 bg-dark/50 px-3 py-1 rounded-sm">{post.category}</span>
@@ -47,7 +78,8 @@ export default function BlogPostPage({ params }: Props) {
 
       {/* Content */}
       <div className="max-w-3xl mx-auto px-6 py-16">
-        <p className="text-xl text-stone-600 font-light leading-relaxed mb-10 border-l-4 border-gold pl-6 italic">{post.excerpt}</p>
+        <p className="text-xl text-stone-600 font-light leading-relaxed mb-6 border-l-4 border-gold pl-6 italic">{post.excerpt}</p>
+        <BlogShareButtons url={postUrl} title={post.title} />
         {post.content ? (
           <div className="prose prose-stone max-w-none prose-headings:font-serif prose-headings:font-light prose-headings:text-dark prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-stone-600 prose-p:leading-relaxed prose-p:mb-5 prose-ul:text-stone-600 prose-li:mb-2 prose-strong:text-dark" dangerouslySetInnerHTML={{ __html: post.content }} />
         ) : (
@@ -73,7 +105,11 @@ export default function BlogPostPage({ params }: Props) {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {otherPosts.map(p => (
                   <Link key={p.id} href={`/blog/${p.slug}`} className="group">
-                    <div className={`h-32 ${p.bgClass} rounded-sm mb-3`} />
+                    <div className={`h-32 ${p.bgClass} rounded-sm mb-3 relative overflow-hidden`}>
+                      {(p as any).imageSrc && (
+                        <Image src={(p as any).imageSrc} alt={p.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="33vw" loading="lazy" />
+                      )}
+                    </div>
                     <span className="text-xs text-gold tracking-wider uppercase">{p.category}</span>
                     <p className="text-sm font-medium text-dark mt-1 group-hover:text-gold transition-colors leading-snug">{p.title}</p>
                   </Link>

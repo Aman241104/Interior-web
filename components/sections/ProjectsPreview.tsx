@@ -69,7 +69,7 @@ export default function ProjectsPreview() {
             <Link href={`/projects/${featured[0].id}`} className="project-card lg:col-span-2 lg:row-span-2 group relative rounded-2xl overflow-hidden cursor-pointer block">
               <div className={`relative ${featured[0].bgClass} h-72 lg:h-full min-h-[400px]`}>
                 {(featured[0] as any).imageSrc && (
-                  <Image src={(featured[0] as any).imageSrc} alt={featured[0].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <Image src={(featured[0] as any).imageSrc} alt={featured[0].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" loading="lazy" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4">
@@ -104,7 +104,7 @@ export default function ProjectsPreview() {
             <Link key={project.id} href={`/projects/${project.id}`} className="project-card group relative rounded-2xl overflow-hidden cursor-pointer block">
               <div className={`relative ${project.bgClass} h-64`}>
                 {(project as any).imageSrc && (
-                  <Image src={(project as any).imageSrc} alt={project.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 33vw" />
+                  <Image src={(project as any).imageSrc} alt={project.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 33vw" loading="lazy" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -127,7 +127,7 @@ export default function ProjectsPreview() {
             <Link href={`/projects/${featured[3].id}`} className="project-card lg:col-span-3 group relative rounded-2xl overflow-hidden cursor-pointer block">
               <div className={`relative ${featured[3].bgClass} h-56`}>
                 {(featured[3] as any).imageSrc && (
-                  <Image src={(featured[3] as any).imageSrc} alt={featured[3].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="100vw" />
+                  <Image src={(featured[3] as any).imageSrc} alt={featured[3].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="100vw" loading="lazy" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-r from-dark/60 via-transparent to-transparent" />
                 <div className="absolute left-0 top-0 bottom-0 flex items-center p-8">

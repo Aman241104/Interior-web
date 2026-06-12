@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { company } from '@/lib/data'
 
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false)
@@ -9,7 +10,7 @@ export default function WhatsAppButton() {
     return () => clearTimeout(t)
   }, [])
 
-  const phone = '919898900000' // placeholder - update with real number
+  const phone = company.phone.replace(/\D/g, '')
   const message = encodeURIComponent("Hi, I'm interested in interior design services from Styluxe. Can we discuss my project?")
 
   return (

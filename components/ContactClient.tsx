@@ -206,9 +206,7 @@ export default function ContactClient() {
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <h3 className="font-serif text-3xl font-600 text-dark mb-4">
-                        Message Received!
-                      </h3>
+                      <h3 className="font-serif text-3xl font-600 text-dark mb-4">Message Received!</h3>
                       <p className="font-sans text-base text-stone-500 leading-relaxed max-w-sm mx-auto mb-8">
                         Thank you, {formData.name.split(" ")[0]}. Akash will personally review your
                         inquiry and get back to you within 24 hours.
@@ -226,6 +224,23 @@ export default function ContactClient() {
                       <h2 className="font-serif text-2xl font-600 text-dark mb-8">
                         Tell us about your project
                       </h2>
+
+                      {formState === "error" && (
+                        <div className="mb-6 flex items-start gap-3 bg-red-50 border border-red-200 rounded-xl px-4 py-4">
+                          <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                          </svg>
+                          <div>
+                            <p className="font-sans text-sm font-600 text-red-700">Message failed to send.</p>
+                            <p className="font-sans text-xs text-red-500 mt-0.5">Please check your connection and try again, or email us directly at <a href={`mailto:${company.email}`} className="underline">{company.email}</a>.</p>
+                          </div>
+                          <button onClick={() => setFormState("idle")} className="ml-auto text-red-400 hover:text-red-600 flex-shrink-0">
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      )}
 
                       <form onSubmit={handleSubmit} noValidate className="space-y-6">
                         {/* Name + Email */}
@@ -355,7 +370,7 @@ export default function ContactClient() {
                         <button
                           type="submit"
                           disabled={formState === "loading"}
-                          className="w-full flex items-center justify-center gap-3 bg-dark text-cream font-sans text-sm font-700 tracking-wide px-8 py-4 rounded-full hover:bg-gold transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed group"
+                          className={`w-full flex items-center justify-center gap-3 font-sans text-sm font-700 tracking-wide px-8 py-4 rounded-full transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed group ${formState === "error" ? "bg-red-600 hover:bg-red-700 text-white" : "bg-dark hover:bg-gold text-cream"}`}
                         >
                           {formState === "loading" ? (
                             <>
@@ -364,6 +379,13 @@ export default function ContactClient() {
                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                               </svg>
                               Sending...
+                            </>
+                          ) : formState === "error" ? (
+                            <>
+                              Try Again
+                              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                              </svg>
                             </>
                           ) : (
                             <>

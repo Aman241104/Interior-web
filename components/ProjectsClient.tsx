@@ -12,11 +12,13 @@ import { projects, type ProjectType } from "@/lib/data";
 gsap.registerPlugin(ScrollTrigger);
 
 type Filter = "all" | ProjectType;
+type SortKey = "default" | "year-desc" | "year-asc" | "area";
 
 export default function ProjectsClient() {
   const heroRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const [activeFilter, setActiveFilter] = useState<Filter>("all");
+  const [sortKey, setSortKey] = useState<SortKey>("default");
 
   useGSAP(() => {
     if (!heroRef.current) return;
@@ -27,7 +29,16 @@ export default function ProjectsClient() {
     );
   }, { scope: heroRef });
 
-  const filtered = activeFilter === "all" ? projects : projects.filter((p) => p.type === activeFilter);
+  const parseArea = (areaStr: string) => parseInt(areaStr.replace(/[^0-9]/g, "")) || 0;
+
+  const filtered = (activeFilter === "all" ? projects : projects.filter((p) => p.type === activeFilter))
+    .slice()
+    .sort((a, b) => {
+      if (sortKey === "year-desc") return b.year - a.year;
+      if (sortKey === "year-asc") return a.year - b.year;
+      if (sortKey === "area") return parseArea(b.area) - parseArea(a.area);
+      return 0;
+    });
 
   const handleFilterChange = (filter: Filter) => {
     if (!gridRef.current) {
@@ -71,20 +82,36 @@ export default function ProjectsClient() {
       {/* Filter Bar */}
       <div className="bg-cream sticky top-[72px] z-30 border-b border-stone-200 shadow-sm">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-4">
-          <div className="flex items-center gap-3 overflow-x-auto scrollbar-hide">
-            {(["all", "residential", "commercial"] as Filter[]).map((filter) => (
-              <button
-                key={filter}
-                onClick={() => handleFilterChange(filter)}
-                className={`font-sans text-sm font-600 tracking-wide px-6 py-2.5 rounded-full capitalize whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
-                  activeFilter === filter
-                    ? "bg-dark text-cream"
-                    : "bg-stone-100 text-stone-500 hover:bg-stone-200 hover:text-dark"
-                }`}
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 overflow-x-auto scrollbar-hide">
+              {(["all", "residential", "commercial"] as Filter[]).map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => handleFilterChange(filter)}
+                  className={`font-sans text-sm font-600 tracking-wide px-6 py-2.5 rounded-full capitalize whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
+                    activeFilter === filter
+                      ? "bg-dark text-cream"
+                      : "bg-stone-100 text-stone-500 hover:bg-stone-200 hover:text-dark"
+                  }`}
+                >
+                  {filter === "all" ? `All (${projects.length})` : filter === "residential" ? `Residential (${projects.filter(p => p.type === "residential").length})` : `Commercial (${projects.filter(p => p.type === "commercial").length})`}
+                </button>
+              ))}
+            </div>
+
+            {/* Sort */}
+            <div className="flex-shrink-0">
+              <select
+                value={sortKey}
+                onChange={(e) => setSortKey(e.target.value as SortKey)}
+                className="font-sans text-sm text-stone-500 bg-transparent border border-stone-200 rounded-full px-4 py-2 focus:outline-none focus:border-gold cursor-pointer hover:border-stone-400 transition-colors"
               >
-                {filter === "all" ? `All (${projects.length})` : filter === "residential" ? `Residential (${projects.filter(p => p.type === "residential").length})` : `Commercial (${projects.filter(p => p.type === "commercial").length})`}
-              </button>
-            ))}
+                <option value="default">Sort: Default</option>
+                <option value="year-desc">Newest first</option>
+                <option value="year-asc">Oldest first</option>
+                <option value="area">Largest area</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -65,21 +66,28 @@ export default function BlogPreview() {
           {previewPosts.map((post, i) => (
             <Link
               key={post.id}
-              href={`/blog`}
+              href={`/blog/${post.slug}`}
               className={`blog-card group rounded-2xl overflow-hidden border border-stone-200 hover:border-gold/40 hover:shadow-lg transition-all duration-400 bg-cream ${
                 i === 0 ? "md:col-span-2 lg:col-span-2" : ""
               }`}
             >
               {/* Image */}
-              {/* TODO: Replace with real blog cover images */}
-              <div className={`relative overflow-hidden ${i === 0 ? "h-52" : "h-44"} ${post.bgClass} img-placeholder`}>
+              <div className={`relative overflow-hidden ${i === 0 ? "h-52" : "h-44"} ${post.bgClass}`}>
+                {(post as any).imageSrc && (
+                  <Image
+                    src={(post as any).imageSrc}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
-                <div className="absolute top-3 left-3">
+                <div className="absolute top-3 left-3 z-10">
                   <span className="font-sans text-xs font-700 tracking-wider uppercase bg-gold text-dark px-2.5 py-1 rounded-full">
                     {post.category}
                   </span>
                 </div>
-                <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 bg-inherit" />
               </div>
 
               {/* Content */}

@@ -26,6 +26,11 @@ export const company = {
     certifications: 4,
     goalProjects: 1000,
   },
+  social: {
+    instagram: "https://www.instagram.com/styluxeinterior",
+    linkedin: "https://www.linkedin.com/company/styluxe-interior-decor",
+    youtube: "https://www.youtube.com/@styluxeinterior",
+  },
 };
 
 // ─── Navigation ──────────────────────────────────────────────────────────────
@@ -464,6 +469,7 @@ export const blogPosts = [
     readTime: "8 min read",
     date: "2025-06-01",
     bgClass: "bg-gradient-to-br from-amber-100 to-stone-200",
+    imageSrc: "/images/services/residential.png",
     content: `<h2>Biophilic Design: Bringing the Outside In</h2>
 <p>Biophilic design — the practice of integrating natural elements into interior spaces — has moved from a niche trend to a mainstream expectation in Ahmedabad homes. Homeowners are requesting living green walls, natural stone feature walls, indoor water features, and large skylights that flood rooms with changing natural light. The result is homes that feel both grounded and alive.</p>
 <p>In practical terms, this means specifying jute, rattan, travertine, and rough-hewn timber alongside the usual marble and lacquer. Plants are no longer decorative accessories — they are structural design elements, positioned to divide spaces, frame views, and filter indoor air quality.</p>
@@ -498,6 +504,7 @@ export const blogPosts = [
     readTime: "10 min read",
     date: "2025-05-01",
     bgClass: "bg-gradient-to-br from-stone-200 to-stone-300",
+    imageSrc: "/images/services/turnkey.png",
     content: `<h2>What Does "Turnkey" Actually Mean?</h2>
 <p>In interior design, "turnkey" means that a single firm takes complete responsibility for your project from concept to completion — design, procurement, civil work, furniture, electrical, and finishing. You hand over a brief, and you receive a ready-to-live-in space. The name comes from the idea that you simply turn a key and walk into your completed home.</p>
 <p>The alternative is managing multiple vendors yourself: hiring a designer separately from your contractor, coordinating material suppliers, tracking deliveries, managing on-site labour disputes, and personally overseeing quality at every stage. For most homeowners and business owners, turnkey is not just more convenient — it is the only realistic path to achieving a coherent, high-quality result.</p>
@@ -531,6 +538,7 @@ export const blogPosts = [
     readTime: "7 min read",
     date: "2025-05-15",
     bgClass: "bg-gradient-to-br from-amber-200 to-amber-100",
+    imageSrc: "/images/projects/kamlesh-patel.png",
     content: `<h2>Why Indian Kitchens Need a Different Approach</h2>
 <p>Indian cooking is intense. Multiple burners running simultaneously, heavy vessels, strong aromas, oil splatter, and high-frequency daily use — these demands are fundamentally different from the light cooking habits that European kitchen design systems are built around. A well-designed modular kitchen for an Indian home must handle this reality without compromising on aesthetics.</p>
 <p>The good news is that modular kitchen systems have matured significantly. With the right material specifications and layout choices, you can have a kitchen that looks stunning on day one and still looks and functions impeccably after five years of Indian cooking.</p>
@@ -561,6 +569,7 @@ export const blogPosts = [
     readTime: "6 min read",
     date: "2025-04-10",
     bgClass: "bg-gradient-to-br from-stone-300 to-stone-400",
+    imageSrc: "/images/studio-office.png",
     content: `<h2>Start with Portfolio Review — But Ask the Right Questions</h2>
 <p>Every interior designer has a portfolio. The question is whether the portfolio is genuinely representative of their work and whether it is relevant to your project type. When reviewing portfolios, look for diversity within a consistent quality standard — a designer who has only done one style of work may struggle with your brief. Look for projects similar to yours in scale, type, and budget range.</p>
 <p>Crucially, ask to see a completed project in person before and after photos only tell part of the story. A site visit shows you material quality, construction precision, and how the design holds up after some years of use. A confident, reputable designer will welcome this request.</p>
@@ -588,6 +597,7 @@ export const blogPosts = [
     readTime: "5 min read",
     date: "2025-04-20",
     bgClass: "bg-gradient-to-br from-stone-200 to-amber-100",
+    imageSrc: "/images/hero-main.png",
     content: `<h2>Why False Ceilings Transform a Space</h2>
 <p>A false ceiling — also called a dropped ceiling or secondary ceiling — is one of the most impactful design interventions available in interior design. It hides mechanical services (electrical wiring, air conditioning ducts, pipes), enables lighting integration, defines zones within open-plan spaces, and dramatically changes the perceived proportions of a room.</p>
 <p>In Ahmedabad homes, false ceilings have become standard in living rooms, master bedrooms, and dining areas. The question is not whether to install one but which design and material to choose.</p>
@@ -619,6 +629,7 @@ export const blogPosts = [
     readTime: "9 min read",
     date: "2025-03-05",
     bgClass: "bg-gradient-to-br from-zinc-200 to-stone-300",
+    imageSrc: "/images/services/commercial.png",
     content: `<h2>The Science Behind Productive Workspaces</h2>
 <p>The evidence base for workspace design and productivity has grown substantially over the past decade. We know that lighting quality affects circadian rhythms and alertness. We know that acoustic conditions significantly impact cognitive performance — open offices without acoustic treatment consistently underperform in tasks requiring concentration. We know that access to daylight improves employee wellbeing and reduces fatigue.</p>
 <p>Good office interior design is not aesthetic decoration — it is applied evidence about how people think, focus, and collaborate. Ahmedabad's growing technology and pharmaceutical sectors have been early adopters of evidence-based workplace design.</p>
@@ -648,6 +659,7 @@ export const blogPosts = [
     readTime: "8 min read",
     date: "2025-03-20",
     bgClass: "bg-gradient-to-br from-amber-100 to-stone-200",
+    imageSrc: "/images/projects/bumrah-farmhouse.png",
     content: `<h2>Understanding Vastu Shastra in the Modern Context</h2>
 <p>Vastu Shastra is an ancient Indian science of spatial arrangement that codifies the relationship between built environments and human wellbeing. At its core, Vastu seeks to align buildings with natural forces — the movement of the sun, prevailing winds, magnetic fields — to create spaces that support health, prosperity, and mental clarity.</p>
 <p>At Styluxe, we approach Vastu as a consultative framework rather than a rigid rulebook. Many Vastu principles align naturally with modern best practices in architecture and interior design — optimising natural light, ensuring cross-ventilation, placing high-activity spaces in energised zones. Others require careful interpretation when working with fixed structural constraints in existing buildings.</p>
@@ -677,6 +689,7 @@ export const blogPosts = [
     readTime: "7 min read",
     date: "2025-02-10",
     bgClass: "bg-gradient-to-br from-stone-200 to-stone-300",
+    imageSrc: "/images/projects/soham-bhagwat.png",
     content: `<h2>The Principle of High-Low Design</h2>
 <p>The most expensive interior in the world gets its impact from a few key hero elements — not from uniformly premium materials throughout. Smart budget interior design applies this principle consciously: identify the two or three elements that carry the most visual weight in the space, invest there, and use cost-effective alternatives for everything else.</p>
 <p>In a living room, the hero elements are typically the flooring, the feature wall, and the primary seating. Invest in quality for these three, and the rest of the room can be assembled economically without the overall aesthetic suffering.</p>
@@ -704,6 +717,7 @@ export const blogPosts = [
     readTime: "10 min read",
     date: "2025-01-15",
     bgClass: "bg-gradient-to-br from-sky-100 to-stone-200",
+    imageSrc: "/images/services/medical.png",
     content: `<h2>Why Healthcare Design is a Specialised Discipline</h2>
 <p>Hospital and medical facility interior design operates under constraints that have no parallel in residential or commercial work. Infection control requirements mandate specific surface materials and seamless junction details. Patient safety standards govern room layouts, door widths, and hardware specifications. Wayfinding complexity — patients and visitors navigating unfamiliar, high-stress environments — demands systematic colour coding and signage integration. Regulatory compliance requirements vary by facility type and state.</p>
 <p>At Styluxe, our healthcare design work follows established evidence-based healthcare design guidelines while meeting Indian regulatory requirements. The result is spaces that heal — not just functionally compliant rooms.</p>
@@ -731,6 +745,7 @@ export const blogPosts = [
     readTime: "6 min read",
     date: "2025-01-05",
     bgClass: "bg-gradient-to-br from-stone-300 to-amber-200",
+    imageSrc: "/images/services/process.png",
     content: `<h2>From 2D Drawings to 3D Reality</h2>
 <p>Twenty years ago, interior design clients approved projects based on 2D floor plans, material samples, and the designer's verbal description of the intended result. The cognitive gap between a flat technical drawing and a lived three-dimensional space is enormous — and it was the source of most client disappointment when projects were completed differently from expectations.</p>
 <p>3D visualisation has eliminated this gap. Today, a client can see photorealistic renders of every room before a single nail is driven. Changes are made on a computer screen rather than in construction, saving both time and money. The client's confidence in the outcome is dramatically higher, and the designer's brief is clearer.</p>
@@ -748,6 +763,116 @@ export const blogPosts = [
 
 <h2>The Revision Process</h2>
 <p>A structured revision process protects both designer and client. At Styluxe, we include two revision rounds in our visualisation process. Changes requested in the first round are incorporated and re-rendered. A second review follows. Changes after the second approval round constitute a scope change and are managed accordingly. This discipline prevents the endless revision loops that delay projects and exhaust both parties — and it encourages clients to be thorough and decisive in their early reviews, which produces better outcomes for everyone.</p>`,
+  },
+];
+
+// ─── Testimonials ─────────────────────────────────────────────────────────────
+
+export const testimonials = [
+  {
+    id: 1,
+    name: "Kamlesh Patel",
+    role: "Chairman, AGL",
+    type: "Residential — 4BHK Bungalow",
+    quote:
+      "Styluxe turned our house into a home we are genuinely proud of. Akash's team understood our brief from the very first meeting and delivered beyond what we imagined. On time, on budget, zero compromises.",
+    rating: 5,
+    imageSrc: "/images/projects/kamlesh-patel.png",
+  },
+  {
+    id: 2,
+    name: "Manas Shah",
+    role: "Olympic Player",
+    type: "Residential — Luxury Apartment",
+    quote:
+      "As someone with a demanding travel schedule, I needed a team I could trust completely. Styluxe handled everything end-to-end with complete transparency. The result speaks for itself — my apartment is exactly how I envisioned it.",
+    rating: 5,
+    imageSrc: "/images/projects/manas-shah.png",
+  },
+  {
+    id: 3,
+    name: "Global Hospital",
+    role: "Healthcare Group",
+    type: "Commercial — Medical Facility",
+    quote:
+      "Healthcare design is highly specialised and unforgiving. Styluxe understood every compliance requirement and delivered a facility that is both clinically functional and genuinely calming for patients. Our staff and patients notice the difference every day.",
+    rating: 5,
+    imageSrc: "/images/projects/global-hospital.png",
+  },
+  {
+    id: 4,
+    name: "Ajanta Pharma",
+    role: "Pharmaceuticals",
+    type: "Commercial — Corporate Office",
+    quote:
+      "Our new office has had a measurable impact on team morale and productivity. The design is intelligent — open enough to encourage collaboration, with enough focused spaces for deep work. Exactly what we needed.",
+    rating: 5,
+    imageSrc: "/images/projects/ajanta-pharma.png",
+  },
+  {
+    id: 5,
+    name: "Bhavesh Patel",
+    role: "Entrepreneur",
+    type: "Residential — Bungalow",
+    quote:
+      "What impressed me most was the quality control. Every material, every finish — checked and rechecked. We did a final walk-through and found almost nothing on the punch list. That level of precision is rare.",
+    rating: 5,
+    imageSrc: "/images/projects/bhavesh-patel.png",
+  },
+  {
+    id: 6,
+    name: "Soham Bhagwat",
+    role: "Businessperson",
+    type: "Residential — Modern Bungalow",
+    quote:
+      "Styluxe handled our bungalow project from concept to handover in 78 days. Communication was excellent throughout — weekly reports, daily photos, and a project manager who actually answered calls. I've already recommended them to three friends.",
+    rating: 5,
+    imageSrc: "/images/projects/soham-bhagwat.png",
+  },
+];
+
+// ─── FAQ ──────────────────────────────────────────────────────────────────────
+
+export const faqs = [
+  {
+    question: "How long does a typical interior project take?",
+    answer:
+      "A standard 3BHK apartment (1,500–2,000 sqft) takes 60–75 days from design sign-off to handover. Larger bungalows and commercial projects take 75–90 days. Timelines depend on the scope and how quickly design approvals are completed. We provide a detailed project schedule with milestones at the start of every engagement.",
+  },
+  {
+    question: "What does 'turnkey' actually include?",
+    answer:
+      "Turnkey means we handle everything: design, civil work, electrical and plumbing modifications, false ceilings, flooring, custom and modular furniture, soft furnishings, lighting, and final styling. You hand us a brief and receive a ready-to-live-in or work-in space. Nothing is outsourced to unknown vendors without your knowledge.",
+  },
+  {
+    question: "How are your packages priced?",
+    answer:
+      "We price per square foot based on the scope of work and material grade. Our Essential package starts at ₹800/sqft, Standard at ₹1,300/sqft, and Luxury at ₹2,000/sqft. These are starting points — use our online calculator for a tailored estimate, or contact us for a detailed BOQ after a site visit.",
+  },
+  {
+    question: "Do you work outside Ahmedabad?",
+    answer:
+      "Our primary service area is Ahmedabad and the surrounding Gujarat region. For large-scale projects in other cities, we evaluate on a case-by-case basis. Contact us with your project details and we'll advise on feasibility and any travel/coordination costs.",
+  },
+  {
+    question: "Can I see your work in person before deciding?",
+    answer:
+      "Yes — and we encourage it. We can arrange site visits to recently completed projects (with client permission) so you can see material quality and construction precision firsthand. We also invite prospective clients to our Paldi studio to review samples, renders, and our portfolio in detail.",
+  },
+  {
+    question: "What warranty do you provide post-handover?",
+    answer:
+      "Our Luxury package includes a 1-year post-handover warranty covering workmanship defects. For all packages, we provide 30 days of complimentary snagging support after handover to address any minor issues. Structural and civil work carries a 5-year warranty as per standard industry norms.",
+  },
+  {
+    question: "How does the 3D visualisation process work?",
+    answer:
+      "After the initial brief and site visit, our design team produces 2D layouts followed by photorealistic 3D renders of every room. For Luxury package clients, we offer an immersive VR walkthrough at 1:1 scale before construction begins. Renders include two revision rounds and must be formally approved before work starts.",
+  },
+  {
+    question: "Do you handle Vastu compliance?",
+    answer:
+      "Yes. We incorporate Vastu guidelines into our design process wherever structurally feasible. For existing apartments where the main structure is fixed, we apply Vastu principles to elements within our control — colour palettes, furniture placement, lighting direction, and material choices. We work with your Vastu consultant if you have one.",
   },
 ];
 

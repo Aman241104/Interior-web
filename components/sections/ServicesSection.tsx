@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -64,15 +65,21 @@ export default function ServicesSection() {
                 i === 0 || i === 3 ? "md:col-span-1" : "md:col-span-1"
               }`}
             >
-              {/* Image Placeholder */}
-              {/* TODO: Replace with real service photos */}
-              <div className={`h-56 ${service.bgClass} relative img-placeholder transition-transform duration-700 group-hover:scale-105`}>
-                <div className="absolute top-4 left-4">
+              {/* Service Image */}
+              <div className={`h-56 ${service.bgClass} relative overflow-hidden`}>
+                <Image
+                  src={`/images/services/${service.id}.png`}
+                  alt={service.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute top-4 left-4 z-10">
                   <span className="font-sans text-xs font-700 tracking-[0.15em] uppercase bg-dark/60 text-cream px-3 py-1.5 rounded-full backdrop-blur-sm">
                     {service.subtitle}
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-dark-800/80 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-dark-800/80 to-transparent z-10" />
               </div>
 
               {/* Content */}
