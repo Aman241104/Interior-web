@@ -37,7 +37,7 @@ export default function CTASection() {
       {/* Background accent */}
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-5"
-        style={{ background: "radial-gradient(circle, #B8923A 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, #C4A24A 0%, transparent 70%)" }}
       />
       <div
         className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-5"

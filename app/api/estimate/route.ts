@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
                   <a href="https://www.styluxeinterior.com/contact" style="display: block; background: #c8a96e; color: #1a1a1a; text-align: center; padding: 14px 32px; border-radius: 50px; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-decoration: none; text-transform: uppercase;">Book a Free Consultation</a>
                 </div>
                 <div style="background: #f9f7f4; padding: 24px 40px; text-align: center; border-top: 1px solid #e5e7eb;">
-                  <p style="font-family: Arial, sans-serif; font-size: 11px; color: #9ca3af; margin: 0;">Styluxe Interior Decor · 01, Murlidhar Complex, Paldi, Ahmedabad · akashmodi@ymail.com</p>
+                  <p style="font-family: Arial, sans-serif; font-size: 11px; color: #9ca3af; margin: 0;">Styluxe Interior Decor · 301, Murlidhar Complex, Fathepura Cross Road, Paldi, Ahmedabad · akashmodi@ymail.com · +91 94292 23647</p>
                 </div>
               </div>
             </body>

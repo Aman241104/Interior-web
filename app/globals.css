@@ -4,8 +4,8 @@
 
 :root {
   --color-cream: #FAF7F2;
-  --color-dark: #1A1714;
-  --color-gold: #B8923A;
+  --color-dark: #0D1C2E;
+  --color-gold: #C4A24A;
   --color-terra: #C4724A;
 }
 
@@ -22,7 +22,7 @@ html {
 
 body {
   background-color: #FAF7F2;
-  color: #1A1714;
+  color: #0D1C2E;
   overflow-x: hidden;
 }
 
@@ -37,7 +37,7 @@ body {
 
 /* ── Selection ── */
 ::selection {
-  background-color: #B8923A;
+  background-color: #C4A24A;
   color: #FAF7F2;
 }
 
@@ -49,11 +49,11 @@ body {
   background: #FAF7F2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #B8923A;
+  background: #C4A24A;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8A6B27;
+  background: #8F7230;
 }
 
 /* ── GSAP Reveal ── */
@@ -84,12 +84,12 @@ input[type="range"]::-webkit-slider-track {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background: #B8923A;
+  background: #C4A24A;
   height: 20px;
   width: 20px;
   border-radius: 50%;
   margin-top: -8px;
-  box-shadow: 0 2px 8px rgba(184, 146, 58, 0.4);
+  box-shadow: 0 2px 8px rgba(196, 162, 74, 0.4);
   transition: transform 0.2s;
 }
 
@@ -104,12 +104,12 @@ input[type="range"]::-moz-range-track {
 }
 
 input[type="range"]::-moz-range-thumb {
-  background: #B8923A;
+  background: #C4A24A;
   height: 20px;
   width: 20px;
   border-radius: 50%;
   border: none;
-  box-shadow: 0 2px 8px rgba(184, 146, 58, 0.4);
+  box-shadow: 0 2px 8px rgba(196, 162, 74, 0.4);
 }
 
 /* ── Marquee ── */
@@ -174,7 +174,7 @@ input[type="range"]::-moz-range-thumb {
 
 /* ── Focus Rings ── */
 *:focus-visible {
-  outline: 2px solid #B8923A;
+  outline: 2px solid #C4A24A;
   outline-offset: 3px;
 }
 

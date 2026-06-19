@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { company, navLinks } from "@/lib/data";
 import NewsletterForm from "@/components/ui/NewsletterForm";
 
@@ -50,9 +51,14 @@ export default function Footer() {
 
           {/* Brand Column — 4 cols */}
           <div className="col-span-2 lg:col-span-4">
-            <Link href="/" className="flex flex-col leading-none mb-6">
-              <span className="font-serif text-3xl font-600 text-cream tracking-tight">Styluxe</span>
-              <span className="font-sans text-[10px] font-700 tracking-[0.2em] uppercase text-gold">Interior Decor</span>
+            <Link href="/" className="inline-flex mb-6">
+              <Image
+                src="/logo/logo-dark.png"
+                alt="Styluxe Interior Decor"
+                width={160}
+                height={64}
+                className="h-14 w-auto object-contain"
+              />
             </Link>
             <p className="font-serif text-lg italic text-stone-400 leading-snug mb-4">
               "Crafting Spaces<br />That Define You"

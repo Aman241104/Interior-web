@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -55,21 +56,15 @@ export default function Navigation() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-18">
             {/* Logo */}
-            <Link href="/" className="flex flex-col leading-none group">
-              <span
-                className={`font-serif text-2xl font-600 tracking-tight transition-colors duration-300 ${
-                  scrolled || !isHome ? "text-dark" : "text-dark"
-                }`}
-              >
-                Styluxe
-              </span>
-              <span
-                className={`font-sans text-[10px] font-600 tracking-[0.18em] uppercase transition-colors duration-300 ${
-                  scrolled || !isHome ? "text-gold" : "text-gold"
-                }`}
-              >
-                Interior Decor
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/logo/logo-light.png"
+                alt="Styluxe Interior Decor"
+                width={140}
+                height={56}
+                className="h-12 w-auto object-contain"
+                priority
+              />
             </Link>
 
             {/* Desktop Links */}
