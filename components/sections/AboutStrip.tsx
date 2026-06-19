@@ -100,15 +100,15 @@ export default function AboutStrip() {
               <SectionLabel text="Our Story" />
             </div>
             <h2 className="about-heading font-serif text-[clamp(2.5rem,4vw,4rem)] font-300 leading-tight mt-6 mb-6 text-dark">
-              Thirteen years of turning{" "}
+              {company.stats.experience} years of turning{" "}
               <span className="italic font-600 text-gold">blank canvases</span>{" "}
               into lived-in masterpieces.
             </h2>
             <p className="about-body font-sans text-base text-stone-500 leading-relaxed mb-8 max-w-lg">
-              Founded in 2013 by Akash Modi, Styluxe began with a singular belief: that every
+              Founded in {company.founded} by {company.founder}, Styluxe began with a singular belief: that every
               space—however modest—deserves intentional design. From a small studio in Paldi to
               completing landmark projects across Ahmedabad, we have held true to that belief
-              across 27 projects and counting.
+              across {company.stats.total} projects and counting.
             </p>
             <div className="about-cta flex flex-wrap gap-4">
               <Link
@@ -150,7 +150,7 @@ export default function AboutStrip() {
                   <p className="font-serif text-xl italic text-cream/90">
                     "Quality is not a destination, it's our standard."
                   </p>
-                  <p className="font-sans text-xs text-cream/60 mt-2">— Akash Modi, Founder</p>
+                  <p className="font-sans text-xs text-cream/60 mt-2">— {company.founder}, Founder</p>
                 </div>
               </div>
             </div>

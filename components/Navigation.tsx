@@ -54,15 +54,15 @@ export default function Navigation() {
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-18">
+          <div className="flex items-center justify-between h-22">
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image
                 src="/logo/logo-light.png"
                 alt="Styluxe Interior Decor"
-                width={140}
-                height={56}
-                className="h-12 w-auto object-contain"
+                width={200}
+                height={80}
+                className="h-16 w-auto object-contain"
                 priority
               />
             </Link>

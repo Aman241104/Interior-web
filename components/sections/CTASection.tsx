@@ -100,7 +100,7 @@ export default function CTASection() {
           {/* Stats row */}
           <div className="mt-12 pt-8 border-t border-dark-700 grid grid-cols-3 gap-4 sm:gap-8">
             {[
-              { value: "27+", label: "Projects Done" },
+              { value: `${company.stats.total}+`, label: "Projects Done" },
               { value: "₹0", label: "Hidden Charges" },
               { value: "100%", label: "Client Satisfaction" },
             ].map((item) => (
@@ -114,6 +114,16 @@ export default function CTASection() {
           {/* Contact info */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-stone-600 text-sm">
             <a
+              href={`tel:${company.phone}`}
+              className="font-sans hover:text-gold transition-colors duration-200 flex items-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+              {company.phone}
+            </a>
+            <span className="hidden sm:block text-dark-700">·</span>
+            <a
               href={`mailto:${company.email}`}
               className="font-sans hover:text-gold transition-colors duration-200 flex items-center gap-2"
             >
@@ -122,10 +132,6 @@ export default function CTASection() {
               </svg>
               {company.email}
             </a>
-            <span className="hidden sm:block text-dark-700">·</span>
-            <span className="font-sans text-stone-600">
-              Paldi, Ahmedabad, Gujarat
-            </span>
           </div>
         </div>
       </div>

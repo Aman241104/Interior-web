@@ -5,7 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { company } from "@/lib/data";
+import { company, projects } from "@/lib/data";
+
+const featuredProject = projects.find(p => p.featured) ?? projects[0];
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,6 +65,8 @@ export default function Hero() {
 
   return (
     <div ref={containerRef} className="relative min-h-screen bg-cream overflow-hidden">
+      {/* Subtle grain texture */}
+      <div className="absolute inset-0 bg-grain opacity-40 pointer-events-none z-0" />
       {/* Main Layout: Left text + Right image */}
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-80px)] pt-12 lg:pt-18">
 
@@ -149,8 +153,8 @@ export default function Hero() {
           {/* Overlay card */}
           <div className="absolute bottom-12 left-8 bg-cream/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl max-w-[240px]">
             <p className="font-serif text-sm italic text-dark/60 mb-2">Latest Project</p>
-            <p className="font-sans text-base font-600 text-dark">Jasprit Bumrah Farmhouse</p>
-            <p className="font-sans text-xs text-stone-500 mt-1">8500 sqft · Ahmedabad</p>
+            <p className="font-sans text-base font-600 text-dark">{featuredProject.title}</p>
+            <p className="font-sans text-xs text-stone-500 mt-1">{featuredProject.area} · {featuredProject.location}</p>
             <div className="flex items-center gap-2 mt-3">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -170,9 +174,9 @@ export default function Hero() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-0 lg:divide-x lg:divide-dark-700">
             {[
-              { value: "27+", label: "Projects Completed" },
-              { value: "13+", label: "Years of Experience" },
-              { value: "10+", label: "Team Members" },
+              { value: `${company.stats.total}+`, label: "Projects Completed" },
+              { value: `${company.stats.experience}+`, label: "Years of Experience" },
+              { value: `${company.stats.team}+`, label: "Team Members" },
               { value: "90d", label: "Max Delivery Time" },
             ].map((stat, i) => (
               <div key={i} className="hero-stat text-center lg:px-8">
