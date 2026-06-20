@@ -663,19 +663,19 @@ export default function CalculatorClient() {
                   checked={falseCeiling}
                   onChange={setFalseCeiling}
                   label="False Ceiling"
-                  sub={`Gypsum board + LED cove · ₹85/sqft${area > 0 ? ` · Est. ${fmtRs(Math.round(area * 85))}` : ""}`}
+                  sub="Gypsum board + LED cove slots"
                 />
                 <CheckCard
                   checked={electrical}
                   onChange={setElectrical}
                   label="Electrical &amp; Lighting"
-                  sub={`Concealed wiring + fixtures · ₹60/sqft${area > 0 ? ` · Est. ${fmtRs(Math.round(area * 60))}` : ""}`}
+                  sub="Concealed wiring + MCB panel + LED fixtures"
                 />
                 <CheckCard
                   checked={painting}
                   onChange={setPainting}
                   label="Putty &amp; Paint Work"
-                  sub={`Putty + primer + 2 coats emulsion · ₹25/sqft${area > 0 ? ` · Est. ${fmtRs(Math.round(area * 25))}` : ""}`}
+                  sub="Putty + primer + 2 coats emulsion"
                 />
               </div>
 
