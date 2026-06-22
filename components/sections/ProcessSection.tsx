@@ -10,6 +10,18 @@ import { processSteps } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const stepImages: Record<number, string> = {
+  1: "/images/process-inquiry.jpg",
+  2: "/images/process-consultation.jpg",
+  3: "/images/process-layouting.jpg",
+  4: "/images/process-site-visit.jpg",
+  5: "/images/process-design.jpg",
+  6: "/images/process-live-3d.jpg",
+  7: "/images/process-execution.png",
+  8: "/images/process-quality-check.jpg",
+};
+const defaultProcessImage = "/images/process-consultation.jpg";
+
 export default function ProcessSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
@@ -122,20 +134,22 @@ export default function ProcessSection() {
 
           {/* Right: Sticky Visual — hidden on mobile, shown on desktop */}
           <div className="process-image hidden lg:block lg:sticky lg:top-24">
-            <div className="relative h-[500px] rounded-2xl overflow-hidden bg-stone-900">
+            <div className="relative h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/images/services/process.png"
-                alt="Styluxe design consultation process"
+                src={stepImages[activeStep + 1] ?? defaultProcessImage}
+                alt="Styluxe design process"
                 fill
-                className="object-cover opacity-60"
+                className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
+              {/* Very light overlay just for the bottom badge readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
                 <div className="text-center">
-                  <div className="font-serif text-7xl font-700 text-dark/10 mb-4">
+                  <div className="font-serif text-7xl font-700 text-white/20 mb-4">
                     {processSteps[activeStep >= 0 ? activeStep : 0].step}
                   </div>
-                  <h3 className="font-serif text-2xl font-600 italic text-dark/60">
+                  <h3 className="font-serif text-2xl font-600 italic text-white/70">
                     {processSteps[activeStep >= 0 ? activeStep : 0].title}
                   </h3>
                 </div>

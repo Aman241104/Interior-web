@@ -141,11 +141,11 @@ export default function Hero() {
         {/* Right: Image Panel */}
         <div className="hero-image-panel relative hidden lg:block">
           <Image
-            src="/images/hero-main.png"
-            alt="Premium interior design by Styluxe — living room showcase"
+            src="/images/award-iea-2025.jpg"
+            alt="Styluxe Interior Decor — International Excellence Awards 2025"
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-top"
             sizes="50vw"
           />
           {/* subtle dark vignette on left edge to blend with text side */}

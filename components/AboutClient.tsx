@@ -163,14 +163,14 @@ export default function AboutClient() {
               <AnimatedSection key={i} delay={i * 0.08}>
                 <div className="bg-cream border border-stone-200 rounded-2xl overflow-hidden hover:border-gold/40 hover:shadow-md transition-all duration-300">
                   {"image" in item && item.image && (
-                    <div className="relative h-48 w-full">
+                    <div className="relative h-56 w-full">
                       <Image
                         src={item.image as string}
                         alt={item.title}
                         fill
-                        className="object-cover object-top"
+                        className="object-cover object-center"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent" />
                     </div>
                   )}
                   <div className="p-6">

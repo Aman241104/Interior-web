@@ -6,11 +6,11 @@ import SectionLabel from "@/components/ui/SectionLabel";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type BHKType = "1 BHK" | "2 BHK" | "3 BHK" | "4 BHK";
+type BHKType = "2 BHK" | "3 BHK" | "4 BHK";
 type KitchenShape = "L-Shape" | "U-Shape" | "Straight" | "Parallel";
 
 const BHK_BEDROOMS: Record<BHKType, number> = {
-  "1 BHK": 1, "2 BHK": 2, "3 BHK": 3, "4 BHK": 4,
+  "2 BHK": 2, "3 BHK": 3, "4 BHK": 4,
 };
 
 interface BedroomConfig {
@@ -503,7 +503,7 @@ export default function CalculatorClient() {
               <div className="mb-8">
                 <p className="font-sans text-sm font-600 text-stone-500 uppercase tracking-wider mb-4">Home Type</p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                  {(["1 BHK", "2 BHK", "3 BHK", "4 BHK"] as BHKType[]).map(bhk => (
+                  {(["2 BHK", "3 BHK", "4 BHK"] as BHKType[]).map(bhk => (
                     <button
                       key={bhk}
                       onClick={() => handleBHKChange(bhk)}

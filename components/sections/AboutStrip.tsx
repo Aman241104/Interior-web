@@ -144,7 +144,7 @@ export default function AboutStrip() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-dark/50" />
+              <div className="absolute inset-0 bg-dark/30" />
               <div className="absolute inset-0 flex items-center px-6">
                 <div>
                   <p className="font-serif text-xl italic text-cream/90">
