@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${resendKey}` },
         body: JSON.stringify({
-          from: 'Styluxe Interior Decor <noreply@styluxeinterior.com>',
+          from: 'Styluxe Interior Decor <noreply@sidecor.in>',
           to: [email],
           bcc: ['akashmodi@ymail.com'],
           subject: `Your Styluxe Interior Design Estimate — ${packageName} Package`,
@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
                     <p style="font-family: Arial, sans-serif; font-size: 12px; color: #92400e; margin: 0; line-height: 1.6;">This is an indicative estimate. Final pricing is confirmed after a detailed site survey and material selection with our design team.</p>
                   </div>
 
-                  <a href="https://www.styluxeinterior.com/contact" style="display: block; background: #c8a96e; color: #1a1a1a; text-align: center; padding: 14px 32px; border-radius: 50px; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-decoration: none; text-transform: uppercase;">Book a Free Consultation</a>
+                  <a href="https://www.sidecor.in/contact" style="display: block; background: #c8a96e; color: #1a1a1a; text-align: center; padding: 14px 32px; border-radius: 50px; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-decoration: none; text-transform: uppercase;">Book a Free Consultation</a>
                 </div>
                 <div style="background: #f9f7f4; padding: 24px 40px; text-align: center; border-top: 1px solid #e5e7eb;">
                   <p style="font-family: Arial, sans-serif; font-size: 11px; color: #9ca3af; margin: 0;">Styluxe Interior Decor · 301, Murlidhar Complex, Fathepura Cross Road, Paldi, Ahmedabad · akashmodi@ymail.com · +91 94292 23647</p>

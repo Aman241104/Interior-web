@@ -13,10 +13,25 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = projects.find(p => String(p.id) === params.id)
   if (!project) return {}
+  const imageSrc = (project as any).imageSrc ?? '/images/award-iea-2025.jpg'
   return {
-    title: `${project.title} | Styluxe Interior Projects`,
-    description: project.description,
-    openGraph: { title: project.title, description: project.description, type: 'website' },
+    title: `${project.title} | Interior Design Project — Styluxe Ahmedabad`,
+    description: `${project.description} ${project.area ? `${project.area} project` : ''} in ${project.location ?? 'Ahmedabad'}.`,
+    keywords: [project.title, project.type, project.subtype, 'interior design Ahmedabad', 'Styluxe Interior Decor'],
+    alternates: { canonical: `https://www.sidecor.in/projects/${params.id}` },
+    openGraph: {
+      title: `${project.title} | Styluxe Interior Design`,
+      description: project.description,
+      type: 'website',
+      url: `https://www.sidecor.in/projects/${params.id}`,
+      images: [{ url: imageSrc, width: 1200, height: 630, alt: project.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description: project.description,
+      images: [imageSrc],
+    },
   }
 }
 

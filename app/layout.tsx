@@ -23,24 +23,34 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.styluxeinterior.com'),
+  metadataBase: new URL('https://www.sidecor.in'),
   title: {
-    default: "Styluxe Interior Decor | Turnkey Interior Design in Ahmedabad",
+    default: "Styluxe Interior Decor | Premium Turnkey Interiors Ahmedabad",
     template: "%s | Styluxe Interior Decor",
   },
   description:
-    "Crafting spaces that define you. Premium turnkey interior design for residential and commercial projects in Ahmedabad. Delivered in under 90 days.",
+    "Award-winning turnkey interior design in Ahmedabad. Residential, commercial & healthcare spaces crafted by Akash Modi. Delivered in under 90 days. IEA 2025 winners.",
   keywords: [
     "interior design Ahmedabad",
-    "turnkey interior design",
-    "residential interior designer",
-    "commercial interior design",
+    "turnkey interior design Ahmedabad",
+    "residential interior designer Ahmedabad",
+    "commercial interior design Gujarat",
     "modular kitchen Ahmedabad",
+    "interior designer Paldi Ahmedabad",
+    "luxury interior design Gujarat",
+    "home interior design Ahmedabad",
+    "office interior design Ahmedabad",
     "Styluxe Interior Decor",
     "Akash Modi interior designer",
+    "interior design under 90 days",
+    "best interior designer Ahmedabad",
+    "turnkey home interior Gujarat",
+    "3D interior design Ahmedabad",
   ],
-  authors: [{ name: "Styluxe Interior Decor" }],
+  authors: [{ name: "Akash N. Modi", url: "https://www.sidecor.in/about" }],
   creator: "Styluxe Interior Decor",
+  publisher: "Styluxe Interior Decor",
+  category: "Interior Design",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
@@ -49,30 +59,42 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://www.styluxeinterior.com",
+    url: "https://www.sidecor.in",
     siteName: "Styluxe Interior Decor",
-    title: "Styluxe Interior Decor | Turnkey Interior Design in Ahmedabad",
+    title: "Styluxe Interior Decor | Premium Turnkey Interiors Ahmedabad",
     description:
-      "Premium turnkey interior design delivered in under 90 days. Residential, commercial, and healthcare spaces crafted with intention.",
+      "Award-winning turnkey interior design in Ahmedabad. Residential, commercial & healthcare spaces. IEA 2025 winners. Delivered in under 90 days.",
     images: [
       {
-        url: "/images/hero-main.png",
+        url: "/images/award-iea-2025.jpg",
         width: 1200,
         height: 630,
-        alt: "Styluxe Interior Decor — Premium Turnkey Interiors Ahmedabad",
+        alt: "Styluxe Interior Decor — IEA International Excellence Awards 2025",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Styluxe Interior Decor | Turnkey Interior Design in Ahmedabad",
+    title: "Styluxe Interior Decor | Premium Turnkey Interiors Ahmedabad",
     description:
-      "Premium turnkey interior design delivered in under 90 days. Residential, commercial, and healthcare spaces crafted with intention.",
-    images: ["/images/hero-main.png"],
+      "Award-winning turnkey interior design in Ahmedabad. IEA 2025 winners. Delivered in under 90 days.",
+    images: ["/images/award-iea-2025.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.sidecor.in",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "",
   },
 };
 

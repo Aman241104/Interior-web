@@ -20,13 +20,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | Styluxe Interior Decor Blog`,
     description: post.excerpt,
     keywords: [post.category, 'interior design', 'Ahmedabad', ...post.title.toLowerCase().split(' ').slice(0, 5)],
-    alternates: { canonical: `https://www.styluxeinterior.com/blog/${post.slug}` },
+    alternates: { canonical: `https://www.sidecor.in/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
       publishedTime: post.date,
-      url: `https://www.styluxeinterior.com/blog/${post.slug}`,
+      url: `https://www.sidecor.in/blog/${post.slug}`,
       images: [{ url: imageSrc, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
@@ -45,7 +45,7 @@ export default function BlogPostPage({ params }: Props) {
   const relatedPosts = blogPosts.filter(p => p.slug !== post.slug && p.category === post.category).slice(0, 3)
   const otherPosts = relatedPosts.length < 3 ? [...relatedPosts, ...blogPosts.filter(p => p.slug !== post.slug && !relatedPosts.includes(p)).slice(0, 3 - relatedPosts.length)] : relatedPosts
 
-  const postUrl = `https://www.styluxeinterior.com/blog/${post.slug}`
+  const postUrl = `https://www.sidecor.in/blog/${post.slug}`
 
   return (
     <main className="min-h-screen bg-cream pt-[76px]">

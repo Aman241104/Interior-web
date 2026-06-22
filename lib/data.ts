@@ -8,7 +8,7 @@ export const company = {
   founder: "Akash N. Modi",
   email: "akashmodi@ymail.com",
   phone: "+91 94292 23647",
-  website: "www.sidecore.in",
+  website: "www.sidecor.in",
   address: {
     line1: "301, Murlidhar Complex",
     line2: "Fathepura Cross Road",

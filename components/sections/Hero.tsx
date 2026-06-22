@@ -139,7 +139,7 @@ export default function Hero() {
         </div>
 
         {/* Right: Image Panel */}
-        <div className="hero-image-panel relative hidden lg:block">
+        <div className="hero-image-panel hidden lg:block relative overflow-hidden min-h-[600px]">
           <Image
             src="/images/award-iea-2025.jpg"
             alt="Styluxe Interior Decor — International Excellence Awards 2025"

@@ -4,16 +4,16 @@ export default function JsonLd() {
   const interiorDesignerSchema = {
     '@context': 'https://schema.org',
     '@type': 'InteriorDesigner',
-    '@id': 'https://www.styluxeinterior.com/#interiordesigner',
+    '@id': 'https://www.sidecor.in/#interiordesigner',
     name: company.name,
-    description: 'Premium turnkey interior design services in Ahmedabad. Residential, commercial, and healthcare spaces delivered in under 90 days.',
-    url: 'https://www.styluxeinterior.com',
+    description: 'Award-winning turnkey interior design in Ahmedabad. IEA 2025 winners. Residential, commercial & healthcare spaces delivered in under 90 days.',
+    url: 'https://www.sidecor.in',
     telephone: company.phone,
     email: company.email,
     foundingDate: String(company.founded),
     founder: {
       '@type': 'Person',
-      '@id': 'https://www.styluxeinterior.com/#founder',
+      '@id': 'https://www.sidecor.in/#founder',
       name: company.founder,
       jobTitle: 'Founder & Principal Designer',
       worksFor: { '@type': 'Organization', name: company.name },
@@ -37,6 +37,8 @@ export default function JsonLd() {
     priceRange: '₹₹₹',
     currenciesAccepted: 'INR',
     areaServed: ['Ahmedabad', 'Gujarat', 'India'],
+    award: 'International Excellence Awards 2025',
+    image: 'https://www.sidecor.in/images/award-iea-2025.jpg',
     sameAs: [
       company.social.instagram,
       company.social.linkedin,
@@ -88,15 +90,28 @@ export default function JsonLd() {
     },
   }
 
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://www.sidecor.in/#website',
+    name: company.name,
+    url: 'https://www.sidecor.in',
+    description: 'Award-winning turnkey interior design in Ahmedabad.',
+    publisher: { '@id': 'https://www.sidecor.in/#organization' },
+    inLanguage: 'en-IN',
+  }
+
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://www.styluxeinterior.com/#organization',
+    '@id': 'https://www.sidecor.in/#organization',
     name: company.name,
-    url: 'https://www.styluxeinterior.com',
+    url: 'https://www.sidecor.in',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://www.styluxeinterior.com/favicon.svg',
+      url: 'https://www.sidecor.in/logo/logo-light.png',
+      width: 200,
+      height: 80,
     },
     contactPoint: {
       '@type': 'ContactPoint',
@@ -126,6 +141,7 @@ export default function JsonLd() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(interiorDesignerSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
     </>

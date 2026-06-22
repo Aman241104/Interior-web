@@ -2,13 +2,23 @@ import { MetadataRoute } from 'next'
 import { blogPosts, projects } from '@/lib/data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://www.styluxeinterior.com'
+  const base = 'https://www.sidecor.in'
+
+  const staticPriorities: Record<string, number> = {
+    '': 1.0,
+    '/services': 0.9,
+    '/projects': 0.9,
+    '/contact': 0.9,
+    '/calculator': 0.8,
+    '/about': 0.8,
+    '/blog': 0.7,
+  }
 
   const staticRoutes = ['', '/about', '/services', '/projects', '/blog', '/calculator', '/contact'].map(route => ({
     url: `${base}${route}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: route === '' ? 1 : 0.8,
+    changeFrequency: (route === '' || route === '/projects' ? 'weekly' : 'monthly') as const,
+    priority: staticPriorities[route] ?? 0.8,
   }))
 
   const blogRoutes = blogPosts.map(post => ({

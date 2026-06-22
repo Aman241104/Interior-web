@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Styluxe Interior Decor | Turnkey Interior Design Ahmedabad",
   description:
     "Crafting spaces that define you. Premium turnkey interior design for residential and commercial projects in Ahmedabad. Delivered under 90 days by Akash Modi.",
-  alternates: { canonical: "https://www.styluxeinterior.com" },
+  alternates: { canonical: "https://www.sidecor.in" },
 };
 
 export default function HomePage() {
