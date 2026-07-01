@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ['', '/about', '/services', '/projects', '/blog', '/calculator', '/contact'].map(route => ({
     url: `${base}${route}`,
     lastModified: new Date(),
-    changeFrequency: (route === '' || route === '/projects' ? 'weekly' : 'monthly') as const,
+    changeFrequency: (route === '' || route === '/projects' ? 'weekly' : 'monthly') as "weekly" | "monthly",
     priority: staticPriorities[route] ?? 0.8,
   }))
 

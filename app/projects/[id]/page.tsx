@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { projects } from '@/lib/data'
+import ProjectGallery from '@/components/ProjectGallery'
 
 type Props = { params: { id: string } }
 
@@ -113,6 +114,9 @@ export default function ProjectPage({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {/* Gallery */}
+        <ProjectGallery images={(project as any).images ?? []} title={project.title} />
 
         {relatedProjects.length > 0 && (
           <div className="mt-20 pt-12 border-t border-stone-200">

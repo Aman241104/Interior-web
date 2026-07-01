@@ -203,7 +203,11 @@ export const projects = [
       "A sprawling farmhouse retreat for India's premier fast bowler. Earthy tones, custom stone features, and open-plan living that blends nature with luxury.",
     tags: ["Farmhouse", "Luxury", "Custom Furniture"],
     bgClass: "bg-gradient-to-br from-stone-300 to-stone-400",
-    imageSrc: "/images/projects/bumrah-farmhouse.png",
+    imageSrc: "/images/projects/bumrah-farmhouse-1.png",
+    images: [
+      "/images/projects/bumrah-farmhouse-1.png",
+      "/images/projects/bumrah-farmhouse-2.png"
+    ],
     featured: true,
     challenge: "Designing an 8500 sqft farmhouse that feels both grand and grounded — a retreat from the public eye that embraces natural materials without sacrificing modern comfort.",
     solution: "We anchored the design around raw stone cladding, warm timber, and biophilic landscaping that flows seamlessly into the interiors, creating distinct zones for rest, entertainment, and outdoor living.",
@@ -227,7 +231,10 @@ export const projects = [
       "An executive bungalow for AGL's Chairman. Understated grandeur with marble accents, coffered ceilings, and a private study that commands authority.",
     tags: ["Bungalow", "Executive", "Marble Accents"],
     bgClass: "bg-gradient-to-br from-stone-200 to-stone-300",
-    imageSrc: "/images/projects/kamlesh-patel.png",
+    imageSrc: "/images/projects/kamlesh-patel-1.png",
+    images: [
+      "/images/projects/kamlesh-patel-1.png"
+    ],
     featured: true,
     challenge: "Creating a home that reflects the stature of a business leader — formal enough for hosting dignitaries, yet warm enough for a family of five with young children.",
     solution: "We designed a dual-personality home: the formal entry and reception wing uses Italian marble, coffered ceilings, and classical proportions, while the private family areas are textured, warm, and playfully modern.",
@@ -251,7 +258,10 @@ export const projects = [
       "A champion's home. Designed for Olympic player Manas Shah, this apartment balances athletic energy with serene recovery spaces.",
     tags: ["Apartment", "Modern", "Wellness"],
     bgClass: "bg-gradient-to-br from-amber-100 to-stone-300",
-    imageSrc: "/images/projects/manas-shah.png",
+    imageSrc: "/images/projects/manas-shah-1.png",
+    images: [
+      "/images/projects/manas-shah-1.png"
+    ],
     featured: true,
     challenge: "An elite athlete needs a home that supports both intense mental focus and deep recovery — with spaces that energize and spaces that restore, without visual clutter or overstimulation.",
     solution: "We applied a biophilic design framework — natural textures, circadian lighting, and neutral palettes — creating a home where every space promotes clarity and recovery.",
@@ -275,7 +285,12 @@ export const projects = [
       "A complete hospital interior overhaul. Patient-centric design with infection-control materials, wayfinding systems, and calming color psychology.",
     tags: ["Hospital", "Healthcare", "Turnkey"],
     bgClass: "bg-gradient-to-br from-sky-100 to-stone-200",
-    imageSrc: "/images/projects/global-hospital.png",
+    imageSrc: "/images/projects/global-hospital-1.png",
+    images: [
+      "/images/projects/global-hospital-1.png",
+      "/images/projects/global-hospital-2.png",
+      "/images/projects/global-hospital-3.png"
+    ],
     featured: true,
     challenge: "Redesigning an operational hospital with minimal downtime — updating aging infrastructure while meeting stringent infection-control standards and improving patient experience across 12,000 sqft.",
     solution: "We phased the renovation in four blocks to maintain operations, specifying anti-microbial surface materials throughout and applying evidence-based color psychology to reduce patient anxiety in high-stress zones.",
@@ -299,7 +314,10 @@ export const projects = [
       "A pharmaceutical headquarters that communicates precision and trust. Clean lines, branded color language, and ergonomic workstation design.",
     tags: ["Corporate", "Office", "Branding"],
     bgClass: "bg-gradient-to-br from-stone-300 to-stone-400",
-    imageSrc: "/images/projects/ajanta-pharma.png",
+    imageSrc: "/images/projects/ajanta-pharma-1.png",
+    images: [
+      "/images/projects/ajanta-pharma-1.png"
+    ],
     featured: false,
     challenge: "Translating a pharmaceutical brand's values of precision, trust, and scientific rigour into a physical workspace that inspires both its own teams and visiting clients and partners.",
     solution: "We used the brand's color palette as a structural design language — clean white with precise blue and gold accents — and specified ergonomic workstations with acoustic privacy panels for focused pharmaceutical research work.",
@@ -323,7 +341,10 @@ export const projects = [
       "Warm textures and layered lighting define this family bungalow. A grand staircase, double-height living area, and dedicated children's zones.",
     tags: ["Bungalow", "Family Home", "Custom"],
     bgClass: "bg-gradient-to-br from-amber-100 to-amber-200",
-    imageSrc: "/images/projects/bhavesh-patel.png",
+    imageSrc: "/images/projects/bhavesh-patel-1.png",
+    images: [
+      "/images/projects/bhavesh-patel-1.png"
+    ],
     featured: false,
     challenge: "Designing a home that works for a multigenerational family — with spaces that serve different age groups simultaneously without compromising on aesthetic coherence or spatial flow.",
     solution: "We organised the bungalow around a central double-height living space that acts as the family hub, with private zones radiating outward — adult spaces upstairs, children's zones at ground level near the garden.",
@@ -347,7 +368,10 @@ export const projects = [
       "A contemporary apartment with an editorial aesthetic. Gallery-white walls, walnut furniture, and dramatic accent lighting throughout.",
     tags: ["Apartment", "Contemporary", "Minimalist"],
     bgClass: "bg-gradient-to-br from-stone-200 to-stone-300",
-    imageSrc: "/images/projects/soham-bhagwat.png",
+    imageSrc: "/images/projects/soham-bhagwat-1.png",
+    images: [
+      "/images/projects/soham-bhagwat-1.png"
+    ],
     featured: false,
     challenge: "A young entrepreneur wanted an apartment that felt like a high-end boutique hotel rather than a typical home — minimal clutter, maximum impact, with gallery-quality art presentation.",
     solution: "We stripped the design back to its structural essentials, using gallery-white throughout and introducing warmth through walnut joinery and brass hardware — letting carefully selected artwork and lighting do the decorative work.",
@@ -371,7 +395,10 @@ export const projects = [
       "Industrial interior design for a textile manufacturing facility. Safety-first approach with efficient workflow layouts and durable material choices.",
     tags: ["Industrial", "Manufacturing", "Safety"],
     bgClass: "bg-gradient-to-br from-zinc-300 to-stone-400",
-    imageSrc: "/images/projects/dinatex-autolooms.png",
+    imageSrc: "/images/projects/dinatex-autolooms-1.png",
+    images: [
+      "/images/projects/dinatex-autolooms-1.png"
+    ],
     featured: false,
     challenge: "Designing a 18,000 sqft textile manufacturing facility that maximises operational efficiency, meets safety regulations, and maintains durability under high-humidity, high-traffic industrial conditions.",
     solution: "We prioritised workflow ergonomics — positioning material storage, production lines, and quality control stations in a logical sequence — while specifying epoxy flooring, high-impact wall protection, and industrial-grade lighting throughout.",
@@ -395,7 +422,10 @@ export const projects = [
       "A chemical company's office transformed into a modern, safety-compliant workspace with sleek modular furniture and a striking reception area.",
     tags: ["Office", "Industrial", "Modern"],
     bgClass: "bg-gradient-to-br from-stone-300 to-zinc-300",
-    imageSrc: "/images/projects/rajlaxmi-chemicals.png",
+    imageSrc: "/images/projects/rajlaxmi-chemicals-1.png",
+    images: [
+      "/images/projects/rajlaxmi-chemicals-1.png"
+    ],
     featured: false,
     challenge: "Transforming a dated 3,500 sqft chemical company office into a modern, professional workspace while maintaining compliance with industrial safety standards and working within a lean budget.",
     solution: "We maximised impact through a strong reception redesign and consistent modular furniture system throughout, while specifying chemical-resistant surface materials appropriate for proximity to laboratory areas.",
@@ -419,7 +449,10 @@ export const projects = [
       "A high-performance trading floor with multi-screen workstations, acoustic ceiling panels, and a premium boardroom for client meetings.",
     tags: ["Finance", "Trading", "High-Tech"],
     bgClass: "bg-gradient-to-br from-stone-400 to-stone-500",
-    imageSrc: "/images/projects/perfect-equities.png",
+    imageSrc: "/images/projects/perfect-equities-1.png",
+    images: [
+      "/images/projects/perfect-equities-1.png"
+    ],
     featured: false,
     challenge: "Creating a financial trading environment that handles extreme technical demands — cable management for multi-screen setups, acoustic control in a high-activity open floor — while projecting confidence to visiting institutional clients.",
     solution: "We designed the trading floor around a raised access floor system for cable management, specified acoustic ceiling baffles to control noise, and created a separate client-facing zone that projects a premium, gallery-like calmness separate from the trading activity.",
@@ -443,7 +476,10 @@ export const projects = [
       "Administrative offices for a chemical plant. Durable, clean, and functional—with breakout zones and a fully equipped conference facility.",
     tags: ["Industrial", "Office", "Functional"],
     bgClass: "bg-gradient-to-br from-stone-200 to-stone-300",
-    imageSrc: "/images/projects/sandip-chemicals.png",
+    imageSrc: "/images/projects/sandip-chemicals-1.png",
+    images: [
+      "/images/projects/sandip-chemicals-1.png"
+    ],
     featured: false,
     challenge: "Designing administrative offices that connect to a working chemical plant — requiring materials that withstand occasional chemical exposure, airlock entry systems, and compliance with industrial safety codes.",
     solution: "We specified chemical-resistant laminates and easy-clean wall surfaces throughout, designed a decontamination entry vestibule, and created a bright, comfortable office environment that contrasts positively with the industrial plant environment.",
