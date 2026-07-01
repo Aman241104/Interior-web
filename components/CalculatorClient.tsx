@@ -27,46 +27,36 @@ interface LineItem {
   particulars: string;
   detail: string;
   qty: string;
-  unitCost: number;
-  amount: number;
 }
 
 interface Section {
   title: string;
   items: LineItem[];
-  total: number;
 }
 
 // ─── Rates ────────────────────────────────────────────────────────────────────
 
 const R = {
-  tvUnit:          { label: "TV Unit",                     detail: "18mm Century Ply · Laminate Finish · LED Strip Lighting",      cost: 32000 },
-  pujaUnit:        { label: "Puja Unit",                   detail: "18mm Ply · Decorative Laminate · Backlit Niches",              cost: 18000 },
-  crockeryUnit:    { label: "Crockery / Bar Unit",         detail: "18mm Ply · Glass Shutters · Internal LED Lighting",           cost: 40000 },
-  commonWashbasin: { label: "Common Washbasin Vanity",     detail: "WPC Board · Counter Basin · Chrome Fittings",                 cost: 10000 },
-  washbasinMirror: { label: "Washbasin Backlit Mirror",    detail: "LED Backlit Designer Mirror · 24\"×36\"",                    cost:  6500 },
-  kitchenLower:    { label: "Kitchen Lower Cabinets",      detail: "BWP 710 Grade Ply · Laminate · Hettich Soft-close Hinges",   cost:  2200 },
-  kitchenUpper:    { label: "Kitchen Upper Cabinets",      detail: "BWP 710 Grade Ply · Laminate · Hettich Soft-close Hinges",   cost:  1700 },
-  kitchenHardware: { label: "Kitchen Hardware Package",    detail: "Hettich Innotech Tandem Boxes · Pull-outs · Corner Unit",    cost: 12000 },
-  wardrobe:        { label: "Wardrobe (Sliding)",          detail: "18mm BWP Ply · Mirror / Laminate Shutter · Hettich Channels",cost:  9000 },
-  bed:             { label: "Bed with Hydraulic Storage",  detail: "Queen Size · 18mm Ply · Upholstered Headboard",              cost: 42000 },
-  study:           { label: "Study / Work Unit",           detail: "4 ft Wide · 18mm Ply · Laminate · Overhead Cabinet",         cost: 16000 },
-  dresser:         { label: "Dresser with Mirror",         detail: "18mm Ply · Laminate · Soft-close Drawers · Framed Mirror",   cost: 14000 },
-  shoeCabinet:     { label: "Shoe Cabinet",                detail: "18mm Ply · Laminate · Adjustable Shelves",                   cost: 12000 },
-  bathroomVanity:  { label: "Bathroom & Washbasin Vanity", detail: "WPC Board · Counter Basin · Backlit Mirror",                 cost: 18000 },
-  falseCeiling:    { label: "False Ceiling",               detail: "Gypsum Board · Grid System · POP Edges · LED Cove Slots",    cost:    85 },
-  electrical:      { label: "Electrical & Lighting",       detail: "Concealed Wiring · MCB Panel · Switches · LED Fixtures",     cost:    60 },
-  painting:        { label: "Putty & Paint Work",          detail: "Putty · Primer · 2 Coats Asian Royale Emulsion",            cost:    25 },
+  tvUnit:          { label: "TV Unit",                     detail: "18mm Century Ply · Laminate Finish · LED Strip Lighting" },
+  pujaUnit:        { label: "Puja Unit",                   detail: "18mm Ply · Decorative Laminate · Backlit Niches" },
+  crockeryUnit:    { label: "Crockery / Bar Unit",         detail: "18mm Ply · Glass Shutters · Internal LED Lighting" },
+  commonWashbasin: { label: "Common Washbasin Vanity",     detail: "WPC Board · Counter Basin · Chrome Fittings" },
+  washbasinMirror: { label: "Washbasin Backlit Mirror",    detail: "LED Backlit Designer Mirror · 24\"×36\"" },
+  kitchenLower:    { label: "Kitchen Lower Cabinets",      detail: "BWP 710 Grade Ply · Laminate · Hettich Soft-close Hinges" },
+  kitchenUpper:    { label: "Kitchen Upper Cabinets",      detail: "BWP 710 Grade Ply · Laminate · Hettich Soft-close Hinges" },
+  kitchenHardware: { label: "Kitchen Hardware Package",    detail: "Hettich Innotech Tandem Boxes · Pull-outs · Corner Unit" },
+  wardrobe:        { label: "Wardrobe (Sliding)",          detail: "18mm BWP Ply · Mirror / Laminate Shutter · Hettich Channels" },
+  bed:             { label: "Bed with Hydraulic Storage",  detail: "Queen Size · 18mm Ply · Upholstered Headboard" },
+  study:           { label: "Study / Work Unit",           detail: "4 ft Wide · 18mm Ply · Laminate · Overhead Cabinet" },
+  dresser:         { label: "Dresser with Mirror",         detail: "18mm Ply · Laminate · Soft-close Drawers · Framed Mirror" },
+  shoeCabinet:     { label: "Shoe Cabinet",                detail: "18mm Ply · Laminate · Adjustable Shelves" },
+  bathroomVanity:  { label: "Bathroom & Washbasin Vanity", detail: "WPC Board · Counter Basin · Backlit Mirror" },
+  falseCeiling:    { label: "False Ceiling",               detail: "Gypsum Board · Grid System · POP Edges · LED Cove Slots" },
+  electrical:      { label: "Electrical & Lighting",       detail: "Concealed Wiring · MCB Panel · Switches · LED Fixtures" },
+  painting:        { label: "Putty & Paint Work",          detail: "Putty · Primer · 2 Coats Asian Royale Emulsion" },
 } as const;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-
-const fmtRs = (n: number) => `₹${n.toLocaleString("en-IN")}`;
-const fmtBig = (n: number) => {
-  if (n >= 10000000) return `₹${(n / 10000000).toFixed(2)} Cr`;
-  if (n >= 100000)   return `₹${(n / 100000).toFixed(2)} L`;
-  return fmtRs(n);
-};
 const toFt = (ft: string, ins: string) => (parseFloat(ft) || 0) + (parseFloat(ins) || 0) / 12;
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -200,112 +190,48 @@ function NavButtons({ onBack, onNext, nextLabel = "Next", nextDisabled = false, 
 
 // ─── Results Table ────────────────────────────────────────────────────────────
 
-function ResultsView({ sections, grandTotal, bhkType, area }: {
-  sections: Section[]; grandTotal: number; bhkType: BHKType; area: number;
-}) {
+function SuccessView() {
   return (
-    <div className="space-y-6">
-      {/* Summary */}
-      <div className="bg-dark rounded-2xl p-6 lg:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <div>
-          <p className="font-sans text-xs text-stone-500 uppercase tracking-wider mb-1">Your Interior Budget Estimate</p>
-          <div className="font-serif text-4xl lg:text-5xl font-700 text-gold">{fmtBig(grandTotal)}</div>
-          <p className="font-sans text-xs text-stone-500 mt-2">{bhkType} · {area > 0 ? `${area} sqft carpet area` : ""} · Excl. GST &amp; Labour</p>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          <a
-            href="tel:+919429223647"
-            className="inline-flex items-center gap-2 bg-gold text-dark font-sans text-sm font-700 px-5 py-3 rounded-full hover:bg-gold/80 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-            </svg>
-            Call Now
-          </a>
-          <a
-            href="https://wa.me/919429223647"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] text-white font-sans text-sm font-700 px-5 py-3 rounded-full hover:opacity-90 transition-opacity"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.099.548 4.07 1.504 5.786L.057 23.986l6.305-1.434A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.845 0-3.575-.491-5.065-1.348l-.363-.213-3.741.851.868-3.651-.237-.377A9.942 9.942 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-            </svg>
-            WhatsApp
-          </a>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 border border-stone-600 text-stone-300 font-sans text-sm font-600 px-5 py-3 rounded-full hover:border-gold hover:text-gold transition-colors"
-          >
-            Book Free Consultation
-          </Link>
-        </div>
+    <div className="bg-cream border border-stone-200 rounded-2xl p-8 lg:p-12 text-center max-w-2xl mx-auto">
+      <div className="w-20 h-20 bg-dark text-gold rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
       </div>
-
-      {/* Section tables */}
-      {sections.map((section, si) => (
-        <div key={si} className="bg-cream border border-stone-200 rounded-2xl overflow-hidden">
-          <div className="bg-dark px-6 py-3.5 flex items-center justify-between">
-            <h3 className="font-sans text-sm font-700 text-gold uppercase tracking-wider">{section.title}</h3>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[520px]">
-              <thead>
-                <tr className="border-b border-stone-200 bg-stone-50">
-                  <th className="font-sans text-xs font-700 text-stone-500 uppercase tracking-wider text-left px-5 py-3 w-[30%]">Particulars</th>
-                  <th className="font-sans text-xs font-700 text-stone-500 uppercase tracking-wider text-left px-4 py-3">Detail / Specification</th>
-                  <th className="font-sans text-xs font-700 text-stone-500 uppercase tracking-wider text-center px-4 py-3 w-24">Qty</th>
-                  <th className="font-sans text-xs font-700 text-stone-500 uppercase tracking-wider text-right px-4 py-3 w-28">Unit Cost</th>
-                  <th className="font-sans text-xs font-700 text-stone-500 uppercase tracking-wider text-right px-5 py-3 w-28">Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {section.items.map((item, ii) => (
-                  <tr key={ii} className={`border-b border-stone-100 ${ii % 2 === 1 ? "bg-stone-50/60" : ""}`}>
-                    <td className="font-sans text-sm font-500 text-dark px-5 py-3.5">{item.particulars}</td>
-                    <td className="font-sans text-xs text-stone-400 px-4 py-3.5 leading-relaxed">{item.detail}</td>
-                    <td className="font-sans text-sm text-stone-500 px-4 py-3.5 text-center">{item.qty}</td>
-                    <td className="font-sans text-sm text-stone-500 px-4 py-3.5 text-right">{fmtRs(item.unitCost)}</td>
-                    <td className="font-sans text-sm font-600 text-dark px-5 py-3.5 text-right">{fmtRs(item.amount)}</td>
-                  </tr>
-                ))}
-              </tbody>
-              <tfoot>
-                <tr className="bg-dark/5 border-t-2 border-stone-200">
-                  <td colSpan={3} className="font-sans text-sm font-700 text-dark px-5 py-3 uppercase tracking-wide">
-                    Grand Total — {section.title}
-                  </td>
-                  <td className="px-4 py-3" />
-                  <td className="font-sans text-base font-700 text-gold px-5 py-3 text-right">{fmtRs(section.total)}</td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-        </div>
-      ))}
-
-      {/* Overall total */}
-      <div className="bg-dark rounded-2xl p-6 flex items-center justify-between">
-        <span className="font-sans text-sm font-700 text-stone-400 uppercase tracking-widest">Overall Grand Total</span>
-        <span className="font-serif text-3xl font-700 text-gold">{fmtBig(grandTotal)}</span>
-      </div>
-
-      {/* Disclaimer */}
-      <div className="bg-gold/5 border border-gold/20 rounded-xl p-5">
-        <p className="font-sans text-xs text-stone-500 leading-relaxed">
-          <span className="font-700 text-dark">Note: </span>
-          This is an indicative estimate based on standard market rates for Ahmedabad. Final pricing is confirmed after a detailed site survey and material finalization. Labour charges, transportation, and GST (18%) are not included above. Contact us for a precise quote.
-        </p>
-      </div>
-
-      <div className="text-center pt-2">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="font-sans text-sm text-stone-400 hover:text-gold transition-colors underline underline-offset-4"
+      <h2 className="font-serif text-4xl font-700 text-dark mb-4">Inquiry Sent</h2>
+      <p className="font-sans text-lg text-stone-500 mb-10">You will get a revert back shortly.</p>
+      
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="tel:+919429223647"
+          className="inline-flex w-full sm:w-auto justify-center items-center gap-2 bg-dark text-cream font-sans text-sm font-700 px-6 py-4 rounded-full hover:bg-gold hover:text-dark transition-all duration-300"
         >
-          Recalculate with different selections
-        </button>
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          </svg>
+          Call Now
+        </a>
+        <a
+          href="https://wa.me/919429223647"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex w-full sm:w-auto justify-center items-center gap-2 bg-[#25D366] text-white font-sans text-sm font-700 px-6 py-4 rounded-full hover:opacity-90 transition-opacity"
+        >
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.099.548 4.07 1.504 5.786L.057 23.986l6.305-1.434A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.845 0-3.575-.491-5.065-1.348l-.363-.213-3.741.851.868-3.651-.237-.377A9.942 9.942 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          </svg>
+          WhatsApp
+        </a>
+        <a
+          href="mailto:akashmodi@ymail.com"
+          className="inline-flex w-full sm:w-auto justify-center items-center gap-2 border-2 border-stone-300 text-stone-600 font-sans text-sm font-700 px-6 py-4 rounded-full hover:border-dark hover:text-dark transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+             <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+          Email Us
+        </a>
       </div>
     </div>
   );
@@ -380,67 +306,59 @@ export default function CalculatorClient() {
 
     // Living & Dining
     const ld: LineItem[] = [];
-    if (tvUnit)          ld.push({ particulars: R.tvUnit.label,          detail: R.tvUnit.detail,          qty: "1 No.", unitCost: R.tvUnit.cost,          amount: R.tvUnit.cost });
-    if (pujaUnit)        ld.push({ particulars: R.pujaUnit.label,        detail: R.pujaUnit.detail,        qty: "1 No.", unitCost: R.pujaUnit.cost,        amount: R.pujaUnit.cost });
-    if (crockeryUnit)    ld.push({ particulars: R.crockeryUnit.label,    detail: R.crockeryUnit.detail,    qty: "1 No.", unitCost: R.crockeryUnit.cost,    amount: R.crockeryUnit.cost });
-    if (commonWashbasin) ld.push({ particulars: R.commonWashbasin.label, detail: R.commonWashbasin.detail, qty: "1 No.", unitCost: R.commonWashbasin.cost, amount: R.commonWashbasin.cost });
-    if (washbasinMirror) ld.push({ particulars: R.washbasinMirror.label, detail: R.washbasinMirror.detail, qty: "1 No.", unitCost: R.washbasinMirror.cost, amount: R.washbasinMirror.cost });
-    if (ld.length) sections.push({ title: "Living & Dining Room", items: ld, total: ld.reduce((s, i) => s + i.amount, 0) });
+    if (tvUnit)          ld.push({ particulars: R.tvUnit.label,          detail: R.tvUnit.detail,          qty: "1 No." });
+    if (pujaUnit)        ld.push({ particulars: R.pujaUnit.label,        detail: R.pujaUnit.detail,        qty: "1 No." });
+    if (crockeryUnit)    ld.push({ particulars: R.crockeryUnit.label,    detail: R.crockeryUnit.detail,    qty: "1 No." });
+    if (commonWashbasin) ld.push({ particulars: R.commonWashbasin.label, detail: R.commonWashbasin.detail, qty: "1 No." });
+    if (washbasinMirror) ld.push({ particulars: R.washbasinMirror.label, detail: R.washbasinMirror.detail, qty: "1 No." });
+    if (ld.length) sections.push({ title: "Living & Dining Room", items: ld });
 
     // Kitchen
     if (kitchenRft > 0) {
-      const lAmt = Math.round(kitchenRft * R.kitchenLower.cost);
-      const uAmt = Math.round(kitchenRft * R.kitchenUpper.cost);
       const kItems: LineItem[] = [
-        { particulars: R.kitchenLower.label,    detail: `${kitchenShape} · ${kitchenRft.toFixed(1)} rft · ${R.kitchenLower.detail}`,  qty: `${kitchenRft.toFixed(1)} Rft`, unitCost: R.kitchenLower.cost,    amount: lAmt },
-        { particulars: R.kitchenUpper.label,    detail: `${kitchenShape} · ${kitchenRft.toFixed(1)} rft · ${R.kitchenUpper.detail}`,  qty: `${kitchenRft.toFixed(1)} Rft`, unitCost: R.kitchenUpper.cost,    amount: uAmt },
-        { particulars: R.kitchenHardware.label, detail: R.kitchenHardware.detail, qty: "1 Lot", unitCost: R.kitchenHardware.cost, amount: R.kitchenHardware.cost },
+        { particulars: R.kitchenLower.label,    detail: `${kitchenShape} · ${kitchenRft.toFixed(1)} rft · ${R.kitchenLower.detail}`,  qty: `${kitchenRft.toFixed(1)} Rft` },
+        { particulars: R.kitchenUpper.label,    detail: `${kitchenShape} · ${kitchenRft.toFixed(1)} rft · ${R.kitchenUpper.detail}`,  qty: `${kitchenRft.toFixed(1)} Rft` },
+        { particulars: R.kitchenHardware.label, detail: R.kitchenHardware.detail, qty: "1 Lot" },
       ];
-      sections.push({ title: "Kitchen", items: kItems, total: kItems.reduce((s, i) => s + i.amount, 0) });
+      sections.push({ title: "Kitchen", items: kItems });
     }
 
     // Bedrooms
     bedrooms.forEach((br, idx) => {
       const items: LineItem[] = [];
       if (br.wardrobe) {
-        const amt = br.doors * R.wardrobe.cost;
-        items.push({ particulars: R.wardrobe.label, detail: `${br.doors}-Door · ${R.wardrobe.detail}`, qty: `${br.doors} Doors`, unitCost: R.wardrobe.cost, amount: amt });
+        items.push({ particulars: R.wardrobe.label, detail: `${br.doors}-Door · ${R.wardrobe.detail}`, qty: `${br.doors} Doors` });
       }
-      if (br.bed)     items.push({ particulars: R.bed.label,    detail: R.bed.detail,    qty: "1 No.", unitCost: R.bed.cost,    amount: R.bed.cost });
-      if (br.study)   items.push({ particulars: R.study.label,  detail: R.study.detail,  qty: "1 No.", unitCost: R.study.cost,  amount: R.study.cost });
-      if (br.dresser) items.push({ particulars: R.dresser.label,detail: R.dresser.detail,qty: "1 No.", unitCost: R.dresser.cost,amount: R.dresser.cost });
-      if (items.length) sections.push({ title: `Bedroom ${String(idx + 1).padStart(2, "0")}`, items, total: items.reduce((s, i) => s + i.amount, 0) });
+      if (br.bed)     items.push({ particulars: R.bed.label,    detail: R.bed.detail,    qty: "1 No." });
+      if (br.study)   items.push({ particulars: R.study.label,  detail: R.study.detail,  qty: "1 No." });
+      if (br.dresser) items.push({ particulars: R.dresser.label,detail: R.dresser.detail,qty: "1 No." });
+      if (items.length) sections.push({ title: `Bedroom ${String(idx + 1).padStart(2, "0")}`, items });
     });
 
     // Others
     const others: LineItem[] = [];
-    if (shoeCabinet)   others.push({ particulars: R.shoeCabinet.label, detail: R.shoeCabinet.detail, qty: "1 No.", unitCost: R.shoeCabinet.cost, amount: R.shoeCabinet.cost });
+    if (shoeCabinet)   others.push({ particulars: R.shoeCabinet.label, detail: R.shoeCabinet.detail, qty: "1 No." });
     if (bathroomVanity) {
       const cnt = BHK_BEDROOMS[bhkType];
-      others.push({ particulars: R.bathroomVanity.label, detail: R.bathroomVanity.detail, qty: `${cnt} Nos.`, unitCost: R.bathroomVanity.cost, amount: cnt * R.bathroomVanity.cost });
+      others.push({ particulars: R.bathroomVanity.label, detail: R.bathroomVanity.detail, qty: `${cnt} Nos.` });
     }
-    if (others.length) sections.push({ title: "Others", items: others, total: others.reduce((s, i) => s + i.amount, 0) });
+    if (others.length) sections.push({ title: "Others", items: others });
 
     // Miscellaneous
     const misc: LineItem[] = [];
     if (falseCeiling && area > 0) {
-      const amt = Math.round(area * R.falseCeiling.cost);
-      misc.push({ particulars: R.falseCeiling.label, detail: R.falseCeiling.detail, qty: `${area} Sqft`, unitCost: R.falseCeiling.cost, amount: amt });
+      misc.push({ particulars: R.falseCeiling.label, detail: R.falseCeiling.detail, qty: `${area} Sqft` });
     }
     if (electrical && area > 0) {
-      const amt = Math.round(area * R.electrical.cost);
-      misc.push({ particulars: R.electrical.label, detail: R.electrical.detail, qty: `${area} Sqft`, unitCost: R.electrical.cost, amount: amt });
+      misc.push({ particulars: R.electrical.label, detail: R.electrical.detail, qty: `${area} Sqft` });
     }
     if (painting && area > 0) {
-      const amt = Math.round(area * R.painting.cost);
-      misc.push({ particulars: R.painting.label, detail: R.painting.detail, qty: `${area} Sqft`, unitCost: R.painting.cost, amount: amt });
+      misc.push({ particulars: R.painting.label, detail: R.painting.detail, qty: `${area} Sqft` });
     }
-    if (misc.length) sections.push({ title: "Miscellaneous", items: misc, total: misc.reduce((s, i) => s + i.amount, 0) });
+    if (misc.length) sections.push({ title: "Miscellaneous", items: misc });
 
     return sections;
   }, [tvUnit, pujaUnit, crockeryUnit, commonWashbasin, washbasinMirror, kitchenRft, kitchenShape, bedrooms, shoeCabinet, bathroomVanity, bhkType, falseCeiling, electrical, painting, area]);
-
-  const grandTotal = results.reduce((s, r) => s + r.total, 0);
 
   const canGoStep2 = !!bhkType && area > 0;
   const canSubmit = name.trim().length > 0 && /^[6-9]\d{9}$/.test(phone) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -457,11 +375,7 @@ export default function CalculatorClient() {
           projectType: "residential",
           subtype: bhkType,
           area,
-          packageName: "Custom Selection",
-          minTotal: grandTotal,
-          maxTotal: grandTotal,
-          midTotal: grandTotal,
-          timeline: "45–75 Working Days",
+          sections: results,
         }),
       });
       setStep(5);
@@ -477,13 +391,13 @@ export default function CalculatorClient() {
       {/* Hero */}
       <div className="pt-32 pb-12 bg-cream">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-          <SectionLabel text="Budget Calculator" />
+          <SectionLabel text="Requirements Builder" />
           <h1 className="font-serif text-[clamp(2rem,5vw,6rem)] font-300 leading-[0.92] tracking-tight text-dark mt-6 mb-6 max-w-4xl">
             Plan your interior{" "}
-            <span className="italic font-600 text-gold">budget.</span>
+            <span className="italic font-600 text-gold">requirements.</span>
           </h1>
           <p className="font-sans text-lg text-stone-500 leading-relaxed max-w-2xl">
-            Select your furniture items and get an itemised estimate — the same way you'd discuss it with our design team.
+            Select your furniture items and send us your exact requirements — the same way you'd discuss it with our design team.
           </p>
         </div>
       </div>
@@ -688,7 +602,7 @@ export default function CalculatorClient() {
             <div className="bg-cream border border-stone-200 rounded-2xl p-6 lg:p-10">
               <h2 className="font-serif text-2xl font-600 text-dark mb-2">Your details</h2>
               <p className="font-sans text-sm text-stone-400 mb-8">
-                Enter your contact details to view the full itemised estimate. We&apos;ll also send a copy to your email.
+                Enter your contact details to send your inquiry. We&apos;ll get back to you shortly.
               </p>
 
               <div className="space-y-5 max-w-md">
@@ -734,7 +648,7 @@ export default function CalculatorClient() {
               <NavButtons
                 onBack={() => setStep(3)}
                 onNext={handleSubmit}
-                nextLabel="View My Estimate"
+                nextLabel="Send Inquiry"
                 nextDisabled={!canSubmit}
                 loading={submitState === "loading"}
               />
@@ -743,12 +657,7 @@ export default function CalculatorClient() {
 
           {/* ── Step 5: Results ── */}
           {step === 5 && (
-            <ResultsView
-              sections={results}
-              grandTotal={grandTotal}
-              bhkType={bhkType}
-              area={area}
-            />
+            <SuccessView />
           )}
         </div>
       </section>
