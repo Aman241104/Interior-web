@@ -9,10 +9,16 @@ export async function logToGoogleSheet(sheetName: string, row: Record<string, un
   try {
     const res = await fetch(webhookUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      },
       body: JSON.stringify({ sheet: sheetName, ...row }),
     })
-    if (!res.ok) throw new Error(`Sheet webhook responded ${res.status}`)
+    if (!res.ok) {
+      const body = await res.text().catch(() => '')
+      throw new Error(`Sheet webhook responded ${res.status}: ${body.slice(0, 200)}`)
+    }
   } catch (err) {
     console.error(`Failed to log to Google Sheet (${sheetName}):`, err)
   }
