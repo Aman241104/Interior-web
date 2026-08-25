@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { logToGoogleSheet } from '@/lib/googleSheet'
 
 export async function POST(req: NextRequest) {
   try {
@@ -8,6 +9,12 @@ export async function POST(req: NextRequest) {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ error: 'Valid email required' }, { status: 400 })
     }
+
+    await logToGoogleSheet('Estimate', {
+      name, email, phone, projectType, subtype, area,
+      requirements: JSON.stringify(sections ?? []),
+      submittedAt: new Date().toISOString(),
+    })
 
     // Generate HTML for the selected requirements
     let requirementsHtml = '';

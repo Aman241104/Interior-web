@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { logToGoogleSheet } from '@/lib/googleSheet'
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,6 +10,11 @@ export async function POST(req: NextRequest) {
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
+
+    await logToGoogleSheet('Contact', {
+      name, email, phone, projectType, area, message,
+      submittedAt: new Date().toISOString(),
+    })
 
     // Try Resend if API key available
     const resendKey = process.env.RESEND_API_KEY

@@ -10,8 +10,17 @@ export default function NewsletterForm() {
     e.preventDefault();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
     setState("loading");
-    await new Promise((r) => setTimeout(r, 800));
-    setState("success");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error("Subscription failed");
+      setState("success");
+    } catch {
+      setState("error");
+    }
   };
 
   if (state === "success") {
@@ -28,30 +37,35 @@ export default function NewsletterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2">
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="your@email.com"
-        required
-        disabled={state === "loading"}
-        className="flex-1 min-w-0 font-sans text-sm bg-dark-800 border border-dark-700 text-cream placeholder:text-stone-600 rounded-full px-4 py-2.5 focus:outline-none focus:border-gold transition-colors disabled:opacity-50"
-      />
-      <button
-        type="submit"
-        disabled={state === "loading"}
-        className="flex-shrink-0 bg-gold text-dark font-sans text-xs font-700 px-4 py-2.5 rounded-full hover:bg-gold/80 transition-colors disabled:opacity-50"
-      >
-        {state === "loading" ? (
-          <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-          </svg>
-        ) : (
-          "Subscribe"
-        )}
-      </button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit} className="flex gap-2">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="your@email.com"
+          required
+          disabled={state === "loading"}
+          className="flex-1 min-w-0 font-sans text-sm bg-dark-800 border border-dark-700 text-cream placeholder:text-stone-600 rounded-full px-4 py-2.5 focus:outline-none focus:border-gold transition-colors disabled:opacity-50"
+        />
+        <button
+          type="submit"
+          disabled={state === "loading"}
+          className="flex-shrink-0 bg-gold text-dark font-sans text-xs font-700 px-4 py-2.5 rounded-full hover:bg-gold/80 transition-colors disabled:opacity-50"
+        >
+          {state === "loading" ? (
+            <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+          ) : (
+            "Subscribe"
+          )}
+        </button>
+      </form>
+      {state === "error" && (
+        <p className="font-sans text-xs text-red-400 mt-2">Something went wrong. Please try again.</p>
+      )}
+    </div>
   );
 }
